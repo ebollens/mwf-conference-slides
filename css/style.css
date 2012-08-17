@@ -22,3 +22,11 @@ table td {
     vertical-align: top;
     padding: 0.6em;
 }
+
+.reveal p, .reveal li, .reveal div {
+    margin-bottom: 0.5em;
+}
+
+.condensed li {
+    margin-bottom: 0;
+}
