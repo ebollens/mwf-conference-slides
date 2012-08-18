@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.reveal .slides > section, .reveal .slides > section > section {
+    width: 968px; /* make this min width eventually */
+}
+
 footer {
     font-size: 0.77em;
     font-weight: bold;
@@ -11,7 +15,7 @@ footer {
 }
 
 .small {
-    font-size: 0.77em;
+    font-size: 0.70em;
 }
 
 table {
@@ -23,10 +27,27 @@ table td {
     padding: 0.6em;
 }
 
-.reveal p, .reveal li, .reveal div {
+li {
+    margin-bottom: 0.2em;
+}
+
+.reveal p, .reveal section > * > li, .reveal div {
     margin-bottom: 0.5em;
 }
 
 .condensed li {
     margin-bottom: 0;
+}
+
+.condensed td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
 }
