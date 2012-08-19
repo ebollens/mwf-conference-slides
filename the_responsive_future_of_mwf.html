@@ -193,7 +193,7 @@
                         </ul>
                         <div style="position: relative;">
                             <p class="fragment">Adapter design pattern</p>
-                            <ul>
+                            <ul class="spacing">
                                 <li class="fragment">Abstraction layer</li>
                                 <li class="fragment">Link between markup entities &amp; framework</li>
                                 <li class="fragment">Switch by changing config variable</li>
@@ -202,6 +202,21 @@
                                 <pre class="fragment"><code contenteditable class="ruby">WebBlocks.config[:src][:adapter]<br>      = "bootstrap"</code></pre>
                             </div>
                         </div>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>What if I don't want everything?</h2>
+                        </hgroup>
+                        <ul>
+                        <li class="fragment">Select which <strong>third-party packages</strong> to include</li>
+                        <li class="fragment">Turn <strong>definition modules</strong> on or off as needed</li>
+                        <li class="fragment">Modularized changes through <strong>extensions</strong></li>
+                        </ul>
+                        <p class="fragment">All managed through <strong>build script</strong> configuration</p>
+                        <pre class="fragment" style="font-size: 0.52em;"><code contenteditable class="ruby">WebBlocks.config[:src][:modules]    = ['base','entity/header','entity/nav',...]
+WebBlocks.config[:src][:extensions] = ['ucla','ucla-org',...]
+WebBlocks.config[:build][:packages] = [:bootstrap,:jquery,:modernizr,:respond,...]</code></pre>
                     </section>
                 </section>
                 
@@ -235,7 +250,23 @@
                         <ul>
                             <li class="fragment">Inherit from levels above</li>
                             <li class="fragment">Extend/overide definitions from above</li>
-                            <li class="fragment">Contributes back up the tree</li>
+                            <li class="fragment">Contribute back up the tree</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Campus Workflow</h2>
+                        </hgroup>
+                        <p class="fragment">Campus central IT unit:</p>
+                        <ul>
+                            <li class="fragment">Forks core version and makes campus-specific changes</li>
+                            <li class="fragment">Hosts the campus version of the toolkit</li>
+                        </ul>
+                        <p class="fragment">Another unit on campus either:</p>
+                        <ul>
+                            <li class="fragment">Uses campus hosted version as-is</li>
+                            <li class="fragment">Forks campus version and makes unit-specific changes</li>
                         </ul>
                     </section>
                 </section>
@@ -255,10 +286,7 @@
                         <h2>Roadmap</h2>
                         <p class="fragment">Initial release by end of year</p>
                         <p class="fragment">... but you can start using it today!</p>
-                        <div class="fragment">
-                            <hr>
-                            <p>Email <a href="mailto:ebollens@ucla.edu">ebollens@ucla.edu</a> for access</p>
-                        </div>
+                        <p class="fragment" style="padding-top: 28px;">Email <a href="mailto:ebollens@ucla.edu">ebollens@ucla.edu</a> for access</p>
                     </section>
                     
                 </section>

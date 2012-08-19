@@ -40,7 +40,7 @@ li {
     margin-bottom: 0.2em;
 }
 
-.reveal p, .reveal section > * > li, .reveal div {
+.reveal p, .reveal section > * > li, .reveal div, .reveal .spacing > li {
     margin-bottom: 0.5em;
 }
 
