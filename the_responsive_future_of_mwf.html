@@ -123,25 +123,29 @@
                 </section>
                 
                 <section>
-                    <h2>A Toolkit</h2>
-                    <p class="fragment"><strong>Integrated</strong> set of packages</p>
-                    <p class="fragment"><strong>Customizable</strong> for organizational needs</p>
-                    <p class="fragment"><strong>Extended</strong> with UI elements and JS interactivity</p>
-                    <p class="fragment"><strong>Collaboration &amp; federation</strong> build directly in</p>
-                </section>
                 
-                <section>
-                    <h2>The Basics</h2>
-                    <ul>
-                        <li class="fragment">Build script for CSS, JS and images</li>
-                        <li class="fragment">Support for SASS and Compass</li>
-                        <li class="fragment">jQuery and Twitter Bootstrap</li>
-                        <li class="fragment">Modernizr, Selectivizr and Respond.js</li>
-                        <li class="fragment">Rich library of UI elements</li>
-                        <li class="fragment">Javascript interactivity APIs</li>
-                    </ul>
-                    <p class="fragment"><em>Isn't this just Compass with libraries?</em></p>
-                    <p class="fragment">Kind of... except more <strong>customizable</strong></p>
+                    <section>
+                        <h2>A Toolkit</h2>
+                        <p class="fragment"><strong>Integrated</strong> set of packages</p>
+                        <p class="fragment"><strong>Customizable</strong> for organizational needs</p>
+                        <p class="fragment"><strong>Extended</strong> with UI elements and JS interactivity</p>
+                        <p class="fragment"><strong>Collaboration &amp; federation</strong> build directly in</p>
+                    </section>
+
+                    <section>
+                        <h2>The Basics</h2>
+                        <ul>
+                            <li class="fragment">Build script for CSS, JS and images</li>
+                            <li class="fragment">Support for SASS and Compass</li>
+                            <li class="fragment">jQuery and Twitter Bootstrap</li>
+                            <li class="fragment">Modernizr, Selectivizr and Respond.js</li>
+                            <li class="fragment">Rich library of UI elements</li>
+                            <li class="fragment">Javascript interactivity APIs</li>
+                        </ul>
+                        <p class="fragment"><em>Isn't this just Compass with libraries?</em></p>
+                        <p class="fragment">Kind of... except more <strong>customizable</strong></p>
+                    </section>
+                    
                 </section>
                 
                 <section>
@@ -156,25 +160,107 @@
                             <h4>Example</h4>
                             <h2>To compress or to polyfill?</h2>
                         </hgroup>
+                        <table>
+                            <tr class="fragment">
+                                <td>
+                                    <p class="label">Compression (from MWF)</p>
+                                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;img src="img.php?img=http%3A%2F%2Fdomain%2Fpath%2Fimg.ext"&gt;</code></pre>
+                                </td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>
+                                    <p class="label">Polyfill (from jQuery Picture)</p>
+                                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;picture alt="Description"&gt;
+    &lt;source src="path/img-small.png"&gt;
+    &lt;source src="path/img-large.ext" media="(min-width:800px)"&gt;
+    &lt;noscript>
+        &lt;img src="path/img-large.ext" alt="Description"&gt;
+    &lt;/noscript&gt;
+&lt;/picture&gt;</code></pre>
+                                </td>
+                            </tr>
+                        </table>
                     </section>
                     <section>
                         <hgroup>
                             <h4>Example</h4>
                             <h2>What about another UI framework?</h2>
                         </hgroup>
+                        <p class="fragment">Bootstrap isn't for everyone...</p>
+                        <ul>
+                            <li class="fragment">Some already using other frameworks</li>
+                            <li class="fragment">Over time, frameworks will come and go</li>
+                        </ul>
+                        <div style="position: relative;">
+                            <p class="fragment">Adapter design pattern</p>
+                            <ul>
+                                <li class="fragment">Abstraction layer</li>
+                                <li class="fragment">Link between markup entities &amp; framework</li>
+                                <li class="fragment">Switch by changing config variable</li>
+                            </ul>
+                            <div style="position: absolute; right: 0; top: 10px;">
+                                <pre class="fragment"><code contenteditable class="ruby">WebBlocks.config[:src][:adapter]<br>      = "bootstrap"</code></pre>
+                            </div>
+                        </div>
                     </section>
                 </section>
                 
                 <section>
-                    <h2>Federation &amp; Collaboration</h2>
+                    <section>
+                        <h2>Workflow</h2>
+                        <div class="small" style="position: relative;">
+                            <div class="fragment" style="margin: 0;">
+                                <div style="margin: auto; background-color: #A00; height: 2em; line-height: 2; text-align: center; width: 10em; border-radius: 0.5em;">Core</div>
+                            </div>
+                            <div class="fragment" style="margin: 0;">
+                                <div style="margin: auto; width: 0; border: 1px solid #999; height: 20px;"></div>
+                                <div style="width: 60%; margin: auto; height: 20px; border: 2px solid #aaa; border-bottom: none;"></div>
+                                <div style="margin: auto; position: relative; height: 2em;">
+                                    <div style="position: absolute; left: 0; background-color: #007; height: 2em; line-height: 2; text-align: center; width: 40%; border-radius: 0.5em;">Organization</div>
+                                    <div style="position: absolute; right: 0; background-color: #007; height: 2em; line-height: 2; text-align: center; width: 40%; border-radius: 0.5em;">Organization</div>
+                                </div>
+                            </div>
+                            <div class="fragment" style="margin: 0;">
+                                <div style="margin-left: 20%; width: 0; border: 1px solid #999; height: 20px; margin-bottom: 0;"></div>
+                                <div style="float: left; width: 20%; margin-left: 10%; height: 20px; border: 2px solid #aaa; border-bottom: none; margin-bottom: 0;"></div>
+                                <div style="float: left; width: 20%; height: 20px; border: 2px solid #aaa; border-bottom: none; border-left: none; margin-bottom: 0;"></div>
+                                <div style="float: left; width: 20%; height: 20px; border: 2px solid #aaa; border-bottom: none; border-left: none; margin-bottom: 0;"></div>
+                                <div style="clear: both; float:left; background-color: #090; height: 2em; width: 15%; margin-left: 2.5%; line-height: 2; text-align: center; border-radius: 0.5em;">Unit</div>
+                                <div style="float:left; background-color: #090; height: 2em; width: 15%; margin-left: 5%; line-height: 2; text-align: center; border-radius: 0.5em;">Unit</div>
+                                <div style="float:left; background-color: #090; height: 2em; width: 15%; margin-left: 5%; line-height: 2; text-align: center; border-radius: 0.5em;">Unit</div>
+                                <div style="float:left; background-color: #090; height: 2em; width: 15%; margin-left: 5%; line-height: 2; text-align: center; border-radius: 0.5em;">Unit</div>
+                            </div>
+                        </div>
+                        <p class="fragment" style="clear: both; padding-top: 18px;">Each level can:</p>
+                        <ul>
+                            <li class="fragment">Inherit from levels above</li>
+                            <li class="fragment">Extend/overide definitions from above</li>
+                            <li class="fragment">Contributes back up the tree</li>
+                        </ul>
+                    </section>
                 </section>
                 
                 <section>
-                    <h2>Where are we now?</h2>
-                </section>
                 
-                <section>
-                    <h2>Roadmap</h2>
+                    <section>
+                        <h2>Where are we now?</h2>
+                        <p class="fragment">Architecture mostly complete</p>
+                        <p class="fragment">Defining markup prototypes</p>
+                        <p class="fragment">Implementing UI &amp; interactivity elements</p>
+                        <p class="fragment">Planning server-side components</p>
+                        <p class="fragment">Collaborative group meets biweekly</p>
+                    </section>
+
+                    <section>
+                        <h2>Roadmap</h2>
+                        <p class="fragment">Initial release by end of year</p>
+                        <p class="fragment">... but you can start using it today!</p>
+                        <div class="fragment">
+                            <hr>
+                            <p>Email <a href="mailto:ebollens@ucla.edu">ebollens@ucla.edu</a> for access</p>
+                        </div>
+                    </section>
+                    
                 </section>
 
                 <section>

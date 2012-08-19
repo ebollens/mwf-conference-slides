@@ -2,6 +2,7 @@
 
 .reveal .slides > section, .reveal .slides > section > section {
     width: 968px; /* make this min width eventually */
+    text-align: left;
 }
 
 footer {
@@ -18,13 +19,21 @@ footer {
     font-size: 0.70em;
 }
 
-table {
-    margin: auto;
-}
-
 table td {
     vertical-align: top;
     padding: 0.6em;
+}
+
+.reveal ul {
+    list-style: none;
+}
+
+.reveal ul > li:before {
+   content: "•";
+   font-size: 0.85em; /* or whatever */
+   vertical-align: top;
+   padding-top: 4px;
+   padding-right: 20px;
 }
 
 li {
@@ -50,4 +59,24 @@ li {
 
 .text-left {
     text-align: left;
+}
+
+hr {
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+    width: 40%;
+    border-top: 1px solid #777;
+    border-left: 2px solid #555;
+    border-right: 2px solid #888;
+    border-bottom: none;
+}
+
+.reveal pre {
+    width: 100%;
+}
+
+p.label {
+    font-size: 0.77em;
+    font-style: italic;
+    color: #aaa;
 }
