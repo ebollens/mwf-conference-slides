@@ -272,9 +272,69 @@
                 <section>
                     <section>
                         <h2>PHP Decorators</h2>
+                        <p class="fragment">Programmatic representation of MWF element</p>
+                        <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu(array(), array('class'=>'main-menu'));
+$decorator->set_title('Menu Title')
+$decorator->add_item('Item 1', '#1')
+$decorator->add_item('Item 2', '#2')
+$decorator->render();</code></pre>
+                        <pre class="fragment"><code lang="html">&lt;div class="menu main-menu"&gt;
+    &lt;h1&gt;Menu Title&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#1"&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#1"&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
                     </section>
                     <section>
-                        <h2>TODO</h2>
+                        <h2>Site Decorators</h2>
+                        <ul>
+                            <li class="fragment"><code>Site_Decorator::menu()</code></li>
+                            <li class="fragment"><code>Site_Decorator::content()</code></li>
+                            <li class="fragment"><code>Site_Decorator::button()</code></li>
+                            <li class="fragment"><code>Site_Decorator::header()</code></li>
+                            <li class="fragment"><code>Site_Decorator::footer()</code></li>
+                            <li class="fragment"><code>Site_Decorator::form()</code></li>
+                            <li class="fragment"><code>Site_Decorator::input()</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Site Decorator Factory</h2>
+                        <p class="fragment"><code>Site_Decorator</code> is actually a factory</p>
+                        <pre class="fragment"><code lang="php">class Site_Decorator extends Decorator {
+    public static function button(){
+        $args = func_get_args();
+        return self::factory(__FUNCTION__, $args);
+    }
+
+    // ...
+
+    public static function factory($name, $args = array())
+    {
+        $name = strtolower($name);
+        require_once(dirname(__FILE__).'/site/'.$name.'.class.php');
+        $class = $name.'_Site_Decorator';
+        $refl = new ReflectionClass($class);
+        return $refl->hasMethod('__construct') 
+                    ? $refl->newInstanceArgs($args) : new $class();
+    }
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>Site Decorator Implementations</h2>
+                        <p class="fragment">Site decorators extend underlying HTML decorators</p>
+                        <pre class="fragment"><code lang="php">class Content_Site_Decorator extends Tag_HTML_Decorator
+{
+    public function __construct($inner = array(), $params = array())
+    {
+        parent::__construct('div', $inner, $params);
+        $this->add_class('content');
+    }
+
+    // ...
+
+}</code></pre>
+                        <p class="fragment">Extend HTML decorator classes with entity-specific methods</p>
                     </section>
                 </section>
                 
