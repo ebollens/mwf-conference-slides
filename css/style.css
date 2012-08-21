@@ -28,6 +28,11 @@ table td {
     list-style: none;
 }
 
+.reveal ol > li{
+    padding-left: 10px;
+    margin-left: 40px;
+}
+
 .reveal ul > li:before {
    content: "•";
    font-size: 0.85em; /* or whatever */
@@ -79,4 +84,8 @@ p.label {
     font-size: 0.77em;
     font-style: italic;
     color: #aaa;
+}
+
+.highlight {
+    color: #FFA522;
 }

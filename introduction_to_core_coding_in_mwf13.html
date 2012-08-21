@@ -38,6 +38,265 @@
                 </section>
 
                 <section>
+                    <h2>Overview</h2>
+                    <ol>
+                        <li class="fragment">CSS &amp; JS Handlers</li>
+                        <li class="fragment">Device Telemetry Stack</li>
+                        <li class="fragment">PHP Decorators</li>
+                        <li class="fragment">Trigger/Target Engine</li>
+                        <li class="fragment">Collaborative Process</li>
+                    </ol>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Why CSS &amp; JS Handlers?</h2>
+                        <p class="fragment">Control behavior based on device classifications</p>
+                        <ul>
+                            <li class="fragment">Media queries</li>
+                            <li class="fragment">Server-side assembly</li>
+                        </ul>
+                        <p class="fragment">Without media queries:</p>
+                        <ol>
+                            <li class="fragment">Detect device capabilities with Javascript</li>
+                            <li class="fragment">Pass this information to the server</li>
+                            <li class="fragment">Assemble the proper behavioral definitions</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>How do we determine capabilities?</h2>
+                        <p class="fragment">Device telemetry stack to pass information to server</p>
+                        <div class="fragment">
+                            <p>PHP objects in the core to access this information:</p>
+                            <ul>
+                                <li><code lang="php">Classification</code></li>
+                                <li><code lang="php">Screen</code></li>
+                            </ul>
+                        </div>
+                        <p class="fragment"><code lang="php">Classification</code> used by handlers</p>
+                        <p class="fragment"><code lang="php">Screen</code> to determine mobile or desktop</p>
+                    </section>
+                    <section>
+                        <h2>Classifications</h2>
+                        <table class="condensed">
+                            <tr class="fragment">
+                                <td>
+                                    <p class="text-right"><strong>Basic</strong></p>
+                                </td>
+                                <td>
+                                    <ul class="small">
+                                        <li>XHTML MP 1.0</li>
+                                        <li>WCSS</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>
+                                    <p class="text-right"><strong>Standard</strong></p>
+                                </td>
+                                <td>
+                                    <ul class="small">
+                                        <li>HTML 4.01</li>
+                                        <li>CSS 2.1</li>
+                                        <li>Javascript 1.5</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="small">
+                                        <li>Cookies</li>
+                                        <li>DOM Writes</li>
+                                        <li>DOM Events</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>
+                                    <p class="text-right"><strong>Full</strong></p>
+                                </td>
+                                <td>
+                                    <ul class="small">
+                                        <li>HTML 5</li>
+                                        <li>CSS 3</li>
+                                        <li>Javascript 1.5</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="small">
+                                        <li>AJAX</li>
+                                        <li>CSS 3 Border Radius</li>
+                                        <li>CSS 3 Box Shadow</li>
+                                        <li>CSS 3 Gradient</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Assembling CSS</h2>
+                        <div class="fragment">
+                            <p>A file per classification:</p>
+                            <ul>
+                                <li>basic.css</li>
+                                <li>standard.css</li>
+                                <li>full.css</li>
+                            </ul>
+                        </div>
+                        <p class="fragment"><code>.src.css</code> versions are sources for minification</p>
+                        <p class="fragment">Source files must be minified for each build</p>
+                    </section>
+                    <section>
+                        <h2>Custom CSS files</h2>
+                        <p class="fragment">Core CSS is loaded from <code>/root/css/default</code></p>
+                        <p class="fragment">Custom CSS goes other subdirectories within <code>/root/css</code></p>
+                        <p class="fragment">Loaded in FIFO order from <code>/config/css.ini</code></p>
+                        <p class="fragment">Good for institutional-specific overrides</p>
+                    </section>
+                    <section>
+                        <h2>Assembling Javascript</h2>
+                        <p class="fragment">Assembled based on classifications like CSS handler</p>
+                        <p class="fragment">Complicated by URL parameters</p>
+                        <ul>
+                            <li class="fragment"><code>basic_libs</code>, <code>standard_libs</code>, <code>full_libs</code></li>
+                            <li class="fragment"><code>basic</code>, <code>standard</code>, <code>full</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Handling Libraries &amp; Includes</h2>
+                        <p class="fragment">Libraries in <code>/root/js/core</code> are always loaded</p>
+                        <p class="fragment">Other libraries included on request from <code>/root/js</code></p>
+                        <ul>
+                            <li class="fragment">Organized by classification</li>
+                            <li class="fragment">Defined by a key that references a file</li>
+                            <li class="fragment">Dependencies handled through a map in <code>JS</code> object</li>
+                        </ul>
+                        <p class="fragment">Includes are fetched through curl and minified</p>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>What is DTS?</h2>
+                        <p class="fragment">Need a way to determine device capabilities</p>
+                        <p class="fragment">Media queries aren't sufficient</p>
+                        <p class="fragment">Why not use metadata?</p>
+                        <ul>
+                            <li class="fragment">Keeping up with new devices</li>
+                            <li class="fragment">Non-default browser settings</li>
+                            <li class="fragment">Openness of metadata APIs</li>
+                        </ul>
+                        <p class="fragment">Instead, use Javascript to detect capabilities</p>
+                    </section>
+                    <section>
+                        <h2>Some Problems</h2>
+                        <p class="fragment">How does client-side code get to server?</p>
+                        <ul>
+                            <li class="fragment">Writing cookies</li>
+                            <li class="fragment">First-load problem</li>
+                        </ul>
+                        <p class="fragment">What about devices without Javascript?</p>
+                        <ul>
+                            <li class="fragment">Server-side intelligence</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>DTS Mechanics</h2>
+                        <p class="fragment">Capability detection</p>
+                        <ul>
+                            <li class="fragment">Use <code>mwf.capability</code> to determine</li>
+                            <li class="fragment">Classify through <code>mwf.classification</code></li>
+                        </ul>
+                        <p class="fragment">Deliver data to server</p>
+                        <ul>
+                            <li class="fragment">Does server already know?</li>
+                            <li class="fragment">Update cookies if not</li>
+                            <li class="fragment">Refresh for handlers</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Caveats</h2>
+                        <p class="fragment">Performance hit on first-load</p>
+                        <ul>
+                            <li class="fragment">HTTP request cost on 3 files</li>
+                        </ul>
+                        <p class="fragment">Federation requires pass-through, not refresh</p>
+                        <ul>
+                            <li class="fragment">HTTP request cost on 4 files</li>
+                        </ul>
+                        <p class="fragment">Infinite loop issues</p>
+                        <ul>
+                            <li class="fragment">Some cases diagnosed explicitly</li>
+                            <li class="fragment">Expensive catch-all protection</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>What's in the Stack?</h2>
+                        <ul>
+                            <li class="fragment"><code>mwf.capability</code> abstracts Modernizr</li>
+                            <li class="fragment"><code>mwf.browser</code> for browser size</li>
+                            <li class="fragment"><code>mwf.userAgent</code> for UA information</li>
+                            <li class="fragment"><code>mwf.screen</code> for device size</li>
+                            <li class="fragment"><code>mwf.classification</code> for classifying devices</li>
+                            <li class="fragment"><code>mwf.override</code> for override handling</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Telemetry within PHP</h2>
+                        <p class="fragment">Subset of data exposed in PHP</p>
+                        <p class="fragment">PHP objects abstract the cookies set</p>
+                        <ul>
+                            <li class="fragment"><code>Classification</code></li>
+                            <li class="fragment"><code>Screen</code></li>
+                            <li class="fragment"><code>User_Agent</code> *</li>
+                            <li class="fragment"><code>Browser</code> *</li>
+                        </ul>
+                        <p class="fragment"><code>User_Agent</code> and <code>Browser</code> not advisable</p>
+                    </section>
+                    <section>
+                        <h2>Overrides</h2>
+                        <p class="fragment">Classification can be overridden by URI of any page</p>
+                        <ul>
+                            <li class="fragment">Set by <code>?override=[CLASSIFICATION]</code></li>
+                            <li class="fragment">Unset by <code>?override=no</code></li>
+                        </ul>
+                        <p class="fragment">Mobile redirection script</p>
+                        <ul>
+                            <li class="fragment"><code>assets/redirect/js.php?m=[URL]</code></li>
+                            <li class="fragment">Prevent by <code>override_redirect=1</code></li>
+                            <li class="fragment">Unset by <code>override_redirect=0</code></li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>PHP Decorators</h2>
+                    </section>
+                    <section>
+                        <h2>TODO</h2>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Trigger/Target Engine</h2>
+                    </section>
+                    <section>
+                        <h2>TODO</h2>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Collaborative Process</h2>
+                    </section>
+                    <section>
+                        <h2>TODO</h2>
+                    </section>
+                </section>
+
+                <section>
                     <h1>THANK YOU</h1>
                     <h2>Any Questions?</h2>
                     <footer>
