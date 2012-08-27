@@ -3,6 +3,13 @@
 .reveal .slides > section, .reveal .slides > section > section {
     width: 968px; /* make this min width eventually */
     text-align: left;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+p {
+    margin-top: 12px;
+    margin-bottom: 6px;
 }
 
 footer {
@@ -16,7 +23,7 @@ footer {
 }
 
 .small {
-    font-size: 0.70em;
+    font-size: 0.8em;
 }
 
 table td {
@@ -87,5 +94,5 @@ p.label {
 }
 
 .highlight {
-    color: #FFA522;
+    color: #FFAA00;
 }

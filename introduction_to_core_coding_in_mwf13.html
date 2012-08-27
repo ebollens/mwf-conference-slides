@@ -190,7 +190,7 @@
                     </section>
                     <section>
                         <h2>Some Problems</h2>
-                        <p class="fragment">How does client-side code get to server?</p>
+                        <p class="fragment">How does browser-side code get to server?</p>
                         <ul>
                             <li class="fragment">Writing cookies</li>
                             <li class="fragment">First-load problem</li>
@@ -204,14 +204,14 @@
                         <h2>DTS Mechanics</h2>
                         <p class="fragment">Capability detection</p>
                         <ul>
-                            <li class="fragment">Use <code>mwf.capability</code> to determine</li>
-                            <li class="fragment">Classify through <code>mwf.classification</code></li>
+                            <li class="fragment">Use <code>mwf.capability</code> to determine capabilities</li>
+                            <li class="fragment">Classify device through <code>mwf.classification</code></li>
                         </ul>
                         <p class="fragment">Deliver data to server</p>
                         <ul>
                             <li class="fragment">Does server already know?</li>
                             <li class="fragment">Update cookies if not</li>
-                            <li class="fragment">Refresh for handlers</li>
+                            <li class="fragment">Refresh page to reload handlers</li>
                         </ul>
                     </section>
                     <section>
@@ -233,7 +233,7 @@
                     <section>
                         <h2>What's in the Stack?</h2>
                         <ul>
-                            <li class="fragment"><code>mwf.capability</code> abstracts Modernizr</li>
+                            <li class="fragment"><code>mwf.capability</code> abstracts Modernizr and others</li>
                             <li class="fragment"><code>mwf.browser</code> for browser size</li>
                             <li class="fragment"><code>mwf.userAgent</code> for UA information</li>
                             <li class="fragment"><code>mwf.screen</code> for device size</li>
@@ -272,12 +272,12 @@
                 <section>
                     <section>
                         <h2>PHP Decorators</h2>
-                        <p class="fragment">Programmatic representation of MWF element</p>
+                        <p class="fragment">Programmatic representation of MWF elements</p>
                         <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu(array(), array('class'=>'main-menu'));
 $decorator->set_title('Menu Title')
 $decorator->add_item('Item 1', '#1')
 $decorator->add_item('Item 2', '#2')
-$decorator->render();</code></pre>
+echo $decorator->render();</code></pre>
                         <pre class="fragment"><code lang="html">&lt;div class="menu main-menu"&gt;
     &lt;h1&gt;Menu Title&lt;/h1&gt;
     &lt;ul&gt;
@@ -330,21 +330,132 @@ $decorator->render();</code></pre>
         parent::__construct('div', $inner, $params);
         $this->add_class('content');
     }
-
-    // ...
-
-}</code></pre>
-                        <p class="fragment">Extend HTML decorator classes with entity-specific methods</p>
+    // ...</code></pre>
+                        <p class="fragment">They include additional entity-specific methods</p>
+                        <pre class="fragment"><code lang="php">    public function &set_padded($val = true)
+    {
+        return $val ? $this->remove_class('not-padded') 
+                    : $this->add_class('not-padded');
+    }</code></pre>
+                    </section>
+                    <section>
+                        <h2>Why Decorators?</h2>
+                        <p class="fragment">Programmatic definition of HTML</p>
+                        <p class="fragment">Pattern of reuse</p>
+                        <p class="fragment">Extend as needed</p>
+                        <p></p>
                     </section>
                 </section>
                 
                 <section>
                     <section>
                         <h2>Trigger/Target Engine</h2>
+                        <p class="fragment">Everyone wants rich interactivity, but...</p>
+                        <ul>
+                            <li class="fragment">Javascript isn't friendly to content editors</li>
+                            <li class="fragment">Hard to program for compatibility</li>
+                        </ul>
+                        <p class="fragment">How about a CSS-based solution?</p>
                     </section>
                     <section>
-                        <h2>TODO</h2>
+                        <h2>Controlling Effects through CSS</h2>
+                        <div class="fragment">
+                            <p>Define a target element</p>
+                            <pre><code lang="html">&lt;div class="<strong>expandable example</strong>"&gt;
+    &lt;h2&gt;Expandable Target&lt;/h2&gt;
+    &lt;p&gt;This div will expand when Trigger is pressed&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p>Define a trigger element</p>
+                            <pre><code lang="html">&lt;a href="#" class="<strong>trigger t-example</strong>"&gt;Trigger&lt;/a&gt;</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p>Include libary in JS handler</p>
+                            <pre><code lang="html">&lt;script src="js.php?standard_libs=<strong>interactivity/expandable</strong>"&gt;&lt/script&gt;</code></pre>
+                        </div>
                     </section>
+                    <section>
+                        <h2>How Does This Work?</h2>
+                        <pre><code lang="html">&lt;div class="<strong>expandable example</strong>"&gt;
+    &lt;h2&gt;Expandable Target&lt;/h2&gt;
+    &lt;p&gt;This div will expand when Trigger is pressed&lt;/p&gt;
+&lt;/div&gt;
+&lt;a href="#" class="<strong>trigger t-example</strong>"&gt;Trigger&lt;/a&gt;</code></pre>
+                        <ol>
+                            <li class="fragment">Find elements with class <code>trigger</code></li>
+                            <li class="fragment">Extract target reference(s) from prefix <code>t-</code></li>
+                            <li class="fragment">Initialize the trigger for target(s)</li>
+                            <li class="fragment">Effect on target controlled by other classes</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>Plugin Architecture</h2>
+                        <p class="fragment">The class <code>expandable</code> defines transition from <code>interactivity/expandable</code></p>
+                        <p class="fragment">Can represent any trigger/target interaction</p>
+                        <p class="fragment">Defined by a handler with event hooks</p>
+                        <p class="fragment">Handler is registered with <code>mwf.standard.interactivity</code></p>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Expandable/Collapsible</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="javascript">mwf.standard.interactivity.expandable = {
+    'handler': {
+        <span class="fragment">'init':function(){
+            if(!$(this).hasClass('expanded'))
+                $(this).addClass('collapsed');
+        },</span>
+        <span class="fragment">'exec':function(){
+            if($(this).hasClass('collapsed'))
+                $(this).removeClass('collapsed').addClass('expanded');
+            else
+                $(this).removeClass('expanded').addClass('collapsed');
+        }</span>
+    }
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Registering a Handler</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="javascript"><span class="fragment">mwf.standard.interactivity.expandable = { 
+    'handler': { 
+        // ...
+    }
+};</span>
+
+<span class="fragment">mwf.standard.interactivity.registerHandler(
+    <span class="fragment">'expandable',                                  // effect class name</span>
+    <span class="fragment">'click',                                       // trigger event</span>
+    <span class="fragment">mwf.standard.interactivity.expandable.handler  // effect handler</span>
+);</span>
+</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Handler Hooks</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="javascript">mwf.standard.interactivity.yourPlugin = {
+    'handler': {
+        <span class="fragment">'init':function(){ /* ... */ },
+        'exec':function(){ /* ... */ },</span>
+        <span class="fragment">'initContainerBefore':function(){ /* ... */ },
+        'execContainerBefore':function(){ /* ... */ },
+        'initContainerAfter':function(){ /* ... */ },
+        'execContainerAfter':function(){ /* ... */ }</span>
+    }
+}
+</code></pre>
+                    </section>
+                    <footer>
+                        <p class="highlight"><strong>NOTE:</strong> Development topic not yet available in production</p>
+                    </footer>
                 </section>
                 
                 <section>
