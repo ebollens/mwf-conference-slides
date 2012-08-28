@@ -35,6 +35,155 @@
                         <p>Eric Bollens / <a href="mailto:ebollens@ucla.edu">ebollens@ucla.edu</a> / <a href="http://twitter.com/ericbollens" target="_blank">@ericbollens</a></p>
                     </footer>
                 </section>
+                
+                <section>
+                    <h2>Overview</h2>
+                    <p class="fragment">What takes time in development?</p>
+                    <ul>
+                        <li class="fragment">Constructing out business logic</li>
+                        <li class="fragment">Building out data models</li>
+                        <li class="fragment">Designing a smooth user experience</li>
+                    </ul>
+                    <p class="fragment">What shouldn't take time with MWF?</p>
+                    <ul>
+                        <li class="fragment">Describing the user interface elements</li>
+                        <li class="fragment">Handling device compatibility issues</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Decorators</h2>
+                        <p class="fragment">An object-oriented approach to MWF entities</p>
+                        <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu();
+$decorator->set_title('Menu Title');
+$decorator->add_item('Item 1', '#1');
+$decorator->add_item('Item 2', '#2');
+echo $decorator->render();</code></pre>
+                        <pre class="fragment"><code lang="html">&lt;div class="menu"&gt;
+    &lt;h1&gt;Menu Title&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#1"&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#1"&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </section>
+                    <section>
+                        <h2>PHP Decorators</h2>
+                        <p class="fragment">MWF Core includes a set of decorators</p>
+                        <ul>
+                            <li class="fragment">Menu, Content, Button, Form, Header, Footer, etc.</li>
+                        </ul>
+                        <p class="fragment">But what about outside of MWF Core?</p>
+                        <ul>
+                            <li class="fragment">MWFD project for PHP decorators</li>
+                            <li class="fragment">JS decorators from the Ohmage project</li>
+                            <li class="fragment">Roll your own decorators for other languages</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>What's in a decorator?</h2>
+                        <p class="fragment">A set of libraries to render MWF entities</p>
+                        <p class="fragment">Object-oriented languages lend themselves to this</p>
+                        <p class="fragment">PHP decorators can be used as reference</p>
+                        <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu();
+$decorator->set_title('Menu Title');
+$decorator->add_item('Item 1', '#1');
+$decorator->add_item('Item 2', '#2');</code></pre>
+                        <pre class="fragment"><code lang="javascript">var menu = mwf.decorator.Menu('Menu Title');
+menu.addMenuLinkItem('Item 1', '#1');
+menu.addMenuLinkItem('Item 2', '#2');</code></pre>
+                    </section>
+                    <section>
+                        <h2>Going further with decorators</h2>
+                        <p class="fragment">A decorator may use multiple decorators</p>
+                        <ul>
+                            <li class="fragment">Most PHP decorators are tag composites</li>
+                            <li class="fragment">This could be extended to a page-level decorator</li>
+                        </ul>
+                        <p class="fragment">The line begins to blur... we're getting close to MVC views</p>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Model-View-Controller (MVC)</h2>
+                        <p class="fragment">Common paradigm in modern frameworks</p>
+                        <ul class="fragment">
+                            <li>Ruby on Rails, Django, Struts, .NET MVC, etc.</li>
+                        </ul>
+                        <p class="fragment">Clear separation of application logic:</p>
+                        <ul>
+                            <li class="fragment"><strong>Model</strong> manages the data layer</li>
+                            <li class="fragment"><strong>View</strong> encapsulates the user interface</li>
+                            <li class="fragment"><strong>Controller</strong> bridges the gap with business logic</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Model-View-Controller (MVC)</h2>
+                        <table>
+                            <tr>
+                                <td class="fragment"><img src="img/mvc-approach-1.png"></td>
+                                <td class="fragment"><img src="img/mvc-approach-2.png"></td>
+                                <td class="fragment"><img src="img/mvc-approach-3.png"></td>
+                                <td class="fragment"><img src="img/mvc-approach-4.png"></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Advantages to MVC</h2>
+                        <p class="fragment">First and foremost, good software engineering</p>
+                        <p class="fragment">For MWF, segregate views from business logic</p>
+                        <p class="fragment">Minimize effort to build mobile &amp; desktop sites</p>
+                        <ul>
+                            <li class="fragment">Reuse controllers and models</li>
+                            <li class="fragment">Create different views for mobile &amp; desktop</li>
+                            <li class="fragment">Possibly reuse elementary views for both contexts</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Basic Menu View (PHP)</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="php">&lt;?php
+class My_Controller extends Application_Controller {
+  public function index(){
+    $view = new View('menu');
+    $view->title = 'Menu Title';
+    $view->items = Menu_Model::all();
+  }
+}</code></pre>
+                        <pre class="fragment"><code lang="php">&lt;div class="menu"&gt;
+  &lt;h1&gt;&lt;?php echo $title; ?&gt;&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;?php foreach($items as $item){ ?&gt;
+    &lt;li&gt;&lt;a href="&lt;?php echo $item->url ?&gt;"&gt;&lt;?php echo $item->name ?&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;?php } ?&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Basic Menu View (Ruby)</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="ruby">class MenuController &lt; ApplicationController
+  def index
+    @title = "Menu Title"
+    @items = Menu.all
+  end
+end</code></pre>
+                        <pre class="fragment"><code lang="ruby">&lt;div class="menu"&gt;
+  &lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;% @items.each do |item| %&gt;
+    &lt;li&gt;&lt;a href="&lt;%= item.url %&gt;"&gt;&lt;%= item.name %&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;% end %&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </section>
+                </section>
 
                 <section>
                     <h1>THANK YOU</h1>

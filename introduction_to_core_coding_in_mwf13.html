@@ -273,12 +273,12 @@
                     <section>
                         <h2>PHP Decorators</h2>
                         <p class="fragment">Programmatic representation of MWF elements</p>
-                        <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu(array(), array('class'=>'main-menu'));
-$decorator->set_title('Menu Title')
-$decorator->add_item('Item 1', '#1')
-$decorator->add_item('Item 2', '#2')
+                        <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu();
+$decorator->set_title('Menu Title');
+$decorator->add_item('Item 1', '#1');
+$decorator->add_item('Item 2', '#2');
 echo $decorator->render();</code></pre>
-                        <pre class="fragment"><code lang="html">&lt;div class="menu main-menu"&gt;
+                        <pre class="fragment"><code lang="html">&lt;div class="menu"&gt;
     &lt;h1&gt;Menu Title&lt;/h1&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href="#1"&gt;Item 1&lt;/a&gt;&lt;/li&gt;
