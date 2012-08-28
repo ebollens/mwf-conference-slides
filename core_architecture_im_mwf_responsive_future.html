@@ -12,6 +12,28 @@
         <link rel="stylesheet" href="css/theme/default.css">
         <link rel="stylesheet" href="lib/css/zenburn.css">
         <link rel="stylesheet" href="css/style.css">
+        <style type="text/css">
+				
+			.question, .answer
+			{
+				display: block;
+			}
+				
+			.question
+			{
+				color: #13DAEC;
+			}
+			
+			.example
+			{
+				color: #71E9F4;
+				display: block;
+				font-size: 1em;
+				font-style: italic;
+				padding: 0 0 0 10%;
+			}
+		
+        </style>
         <script>
             // If the query includes 'print-pdf' we'll use the PDF print sheet
             document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -42,8 +64,44 @@
                         <h2>Why a New Framework?</h2>
                     </section>
                     <section>
-                        <h2>TODO</h2>
+                        <h2>Doesn't This Already Exist?</h2>
+						<ul>
+							<li>
+								<strong>Layout-focused Frameworks</strong>
+								<span class="example">Semantic.gs, Golden Grid Systm, Foldy960</span>
+							</li>
+							<li>
+								<strong>Frameworks with Base UI Elements</strong>
+								<span class="example">Bootstrap, Foundation, Skeleton, Amazium</span>
+							</li>
+						</ul>
                     </section>
+					<section>
+						<h2>Why Not Extend An Existing Framework?</h2>
+						<ul>
+							<li>
+								We need more <strong>UI components</strong>
+								<span class="example">Masthead, ...</span>
+							</li>
+							<li>Framework may be <strong>deprecated</strong> or <strong>superseded</strong></li>
+							<li>MWF community won't decide on a <strong>single framework</strong></li>
+							<li>
+								Each one does some things <strong>right</strong>, other things <strong>wrong</strong>
+								<span class="example">ex: Bootstrap's non-semantic CSS</span>
+							</li>
+							<li>
+								Many useful responsive <strong>tools</strong>, which one to choose?
+								<span class="example">20+ responsive image techniques</span>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What's The Solution?</h2>
+						<p>
+							A <strong>framework-agnostic toolkit</strong> that integrates the
+							best practice responsive tools and techniques.
+						</p>
+					</section>
                 </section>
                 
                 <section>
