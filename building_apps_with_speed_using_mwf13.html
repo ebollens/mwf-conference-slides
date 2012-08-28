@@ -46,7 +46,7 @@
                     </ul>
                     <p class="fragment">What shouldn't take time with MWF?</p>
                     <ul>
-                        <li class="fragment">Describing the user interface elements</li>
+                        <li class="fragment">Defining the user interface</li>
                         <li class="fragment">Handling device compatibility issues</li>
                     </ul>
                 </section>
@@ -182,6 +182,68 @@ end</code></pre>
     &lt;% end %&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Service-Oriented Architecture</h2>
+                        <p class="fragment"><strong>Service Provider</strong></p>
+                        <ul>
+                            <li class="fragment">Expose business logic through service interface</li>
+                            <li class="fragment">Mediate &amp; manipulate data based on services</li>
+                        </ul>
+                        <p class="fragment"><strong>Service Consumer</strong></p>
+                        <ul>
+                            <li class="fragment">Invokes services from the service provider</li>
+                        </ul>
+                        <p class="fragment"><strong>Service Definition</strong></p>
+                        <ul>
+                            <li class="fragment">Contract between provider &amp; consumers</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Why SOA?</h2>
+                        <p class="fragment">A number of benefits including:</p>
+                        <ul>
+                            <li class="fragment">Loose coupling</li>
+                            <li class="fragment">Abstraction</li>
+                            <li class="fragment">Reusability</li>
+                        </ul>
+                        <p class="fragment">Great for building desktop &amp; mobile versions of an app</p>
+                    </section>
+                    <section>
+                        <h2>MWF with SOA</h2>
+                        <p class="fragment">Business logic and data models in a service provider</p>
+                        <p class="fragment">MWF-based mobile application becomes a consumer</p>
+                        <p class="fragment">Allows for consumers in other media</p>
+                        <p class="fragment">A few considerations for MWF-based consumer:</p>
+                        <ul>
+                            <li class="fragment">Use server rendering</li>
+                            <li class="fragment">AJAX as progressive enhancement</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Degradable Preloading</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="html">&lt;a href="example.php" class="button preload"&gt;Example&lt;/a&gt;</code></pre>
+                        <pre class="fragment"><code lang="javascript">if(mwf.classification.isStandard()){
+    
+    <span class="fragment">$(document).ready(function(){
+        $('.preload').each(function(){
+            var page = $(this).attr('href');
+            prefetchPage(page);
+        });
+    });</span>
+
+    <span class="fragment">$('.preload').click(function(e){
+        e.preventDefault();
+        showPage($(this).attr('href'));
+    });</span>
+
+}</code></pre>
                     </section>
                 </section>
 
