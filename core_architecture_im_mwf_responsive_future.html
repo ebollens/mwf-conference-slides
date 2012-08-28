@@ -24,7 +24,7 @@
 				color: #13DAEC;
 			}
 			
-			.example
+			.extra
 			{
 				color: #71E9F4;
 				display: block;
@@ -79,11 +79,11 @@
 						<ul>
 							<li>
 								Layout-focused Frameworks
-								<span class="example">Semantic.gs, Golden Grid System, Foldy960</span>
+								<span class="extra">Semantic.gs, Golden Grid System, Foldy960</span>
 							</li>
 							<li>
 								Frameworks with Base UI Elements
-								<span class="example">Bootstrap, Foundation, Skeleton, Amazium</span>
+								<span class="extra">Bootstrap, Foundation, Skeleton, Amazium</span>
 							</li>
 						</ul>
                     </section>
@@ -92,17 +92,17 @@
 						<ul>
 							<li>
 								We need more <strong>UI components</strong>
-								<span class="example">Masthead, ...</span>
+								<span class="extra">Masthead, ...</span>
 							</li>
 							<li>Framework may be <strong>deprecated</strong> or <strong>superseded</strong></li>
 							<li>MWF community won't decide on a <strong>single framework</strong></li>
 							<li>
 								Each one does some things <strong>right</strong>, other things <strong>wrong</strong>
-								<span class="example">ex: Bootstrap's non-semantic CSS</span>
+								<span class="extra">ex: Bootstrap's non-semantic CSS</span>
 							</li>
 							<li>
 								Many <strong>tools and techniques</strong>, which one to choose?
-								<span class="example">20+ responsive image techniques</span>
+								<span class="extra">20+ responsive image techniques</span>
 							</li>
 						</ul>
 					</section>
@@ -123,15 +123,15 @@
 						<ul>
 							<li>
 								Basic responsive framework
-								<span class="example">Fluid grid, responsive media</span>
+								<span class="extra">Fluid grid, responsive media</span>
 							</li>
 							<li>
 								Set of base UI elements
-								<span class="example">Headers, buttons, forms</span>
+								<span class="extra">Headers, buttons, forms</span>
 							</li>
 							<li>
 								Javascript/CSS libraries for richer interactivity
-								<span class="example">Touch, transitions, ...</span>
+								<span class="extra">Touch, transitions, ...</span>
 							</li>
 						</ul>
                     </section>
@@ -140,11 +140,11 @@
 						<ul>
 							<li>
 								Set of rich, interactive responsive UI components
-								<span class="example">Image galleries, calendars</span>
+								<span class="extra">Image galleries, calendars</span>
 							</li>
 							<li>
 								Responsive images
-								<span class="example">On-the-fly compression, image substitution</span>
+								<span class="extra">On-the-fly compression, image substitution</span>
 							</li>
 							<li>
 								Responsive videos
@@ -159,15 +159,15 @@
 						<ul>
 							<li>
 								Enable/disable individual modules
-								<span class="example">Don't need <strong>responsive video</strong>? Disable it!</span>
+								<span class="extra">Don't need <strong>responsive video</strong>? Disable it!</span>
 							</li>
 							<li>
 								Swap out the underlying framework
-								<span class="example">Prefer <strong>Foundation</strong> over <strong>Bootstrap</strong>? Use it!</span>
+								<span class="extra">Prefer <strong>Foundation</strong> over <strong>Bootstrap</strong>? Use it!</span>
 							</li>
 							<li>
 								Support for integrating third-party components
-								<span class="example">Don't reinvent the <strong>wheel</strong>; integrate the best <strong>spokes</strong></span>
+								<span class="extra">Don't reinvent the <strong>wheel</strong>; integrate the best <strong>spokes</strong></span>
 							</li>
 						</ul>
                     </section>
@@ -176,9 +176,69 @@
                 <section>
                     <section>
                         <h2>The Blocks Builder</h2>
+						<ul>
+							<li>
+								Platform-independence
+								<span class="extra"><strong>content providers</strong> <em>and</em> <strong>service providers</strong></span>
+							</li>
+						</ul>
                     </section>
                     <section>
-                        <h2>TODO</h2>
+                        <h2>What Gets Assembled?</h2>
+						<ul>
+							<li>SASS (<code>.scss</code>) &rarr; Minified CSS and IE CSS</li>
+							<li>JavaScript (<code>.js</code>) &rarr; Minified JS and IE JS</li>
+							<li>Standalone JS</li>
+							<li>Images</li>
+						</ul>
+                    </section>
+					<section>
+                        <h2>SASS?</h2>
+						<p>
+							<strong>SASS (Syntactically Awesome Stylesheets)</strong> is a preprocessor that extends
+							CSS to include:
+						</p>
+						<ul>
+							<!-- Insert Examples -->
+							<li>Classes</li>
+							<li>Includes</li>
+							<li>Functions</li>
+							<li>Nesting Defintions</li>
+							<li>And more!</li>
+						</ul>
+                    </section>
+                    <section>
+                        <h2>What Not Use Compass?</h2>
+						<ul>
+							<li>
+								<strong>Compass</strong> is a SASS extension
+								<span class="extra">Handles builds, provides useful SASS functions</span>
+							</li>
+							<li>
+								Can't handle modular adapter architecture
+							</li>
+						</ul>
+                    </section>
+                    <section>
+						<div class="feature">
+							<h2>Web Blocks Builder</h2>
+							<p>
+								Awesome description!
+							</p>
+						</div>
+                    </section>
+                    <section>
+                        <h2>Demo</h2>
+                    </section>
+                    <section>
+                        <h2>What Can The Builder Do?</h2>
+						<ul>
+							<li>Load only the Web Blocks definitions you want</li>
+							<li>Load a set of framework adapters</li>
+							<li>Load organization-specific extensions</li>
+							<li>Compile with the application's source files</li>
+							<li>Build into an application's assets directory</li>
+						</ul>
                     </section>
                 </section>
                 
@@ -194,15 +254,15 @@
 							<li>Developers can use existing framework, plus Web Blocks features
 							<li>
 								We borrow from the frameworks...
-								<span class="example">Use <strong>Bootstrap's</strong> table styles</span>
+								<span class="extra">Use <strong>Bootstrap's</strong> table styles</span>
 							</li>
 							<li>
 								...but also extend them
-								<span class="example">Add the <code>.highlight</code> option to table rows</span>
+								<span class="extra">Add the <code>.highlight</code> option to table rows</span>
 							</li>
 							<li>
 								Some elements don't exist in other frameworks
-								<span class="example"><strong>Masthead</strong> element</span>
+								<span class="extra"><strong>Masthead</strong> element</span>
 							</li>
 						</ul>
                     </section>
@@ -211,7 +271,7 @@
 						<ol>
 							<li>
 								<strong>Research:</strong> Current usages, specifications
-								<span class="example"><code>blockquote</code> popular convention vs. specification</span>
+								<span class="extra"><code>blockquote</code> popular convention vs. specification</span>
 							</li>
 							<li>
 								<strong>Define:</strong> Formal definition, prototype, examples
