@@ -117,7 +117,7 @@ p.label {
 
 ol .extra
 {
-	padding: 0 0 0 40px;
+    padding: 0 0 0 40px;
 }
 
 .extra, .question-header, h3.question-header
@@ -150,7 +150,7 @@ ol .extra
 {
     color: #FECD05;
     text-shadow: 0 5px 0 #DBA000,
-					0 -1px 0 #FFEAB2;
+                    0 -1px 0 #FFEAB2;
 }
 
 .slide-feature .state-background
