@@ -12,39 +12,6 @@
         <link rel="stylesheet" href="css/theme/default.css">
         <link rel="stylesheet" href="lib/css/zenburn.css">
         <link rel="stylesheet" href="css/style.css">
-        <style type="text/css">
-                
-            .question, .answer
-            {
-                display: block;
-            }
-                
-            .question
-            {
-                color: #13DAEC;
-            }
-            
-            .extra
-            {
-                color: #71E9F4;
-                display: block;
-                font-size: 1em;
-                font-style: italic;
-                padding: 0 0 0 70px;
-            }
-            
-            .feature
-            {
-                margin-top: 100px;
-                text-align: center;
-            }
-            
-            .feature h2
-            {
-                font-size: 3em;
-            }
-        
-        </style>
         <script>
             // If the query includes 'print-pdf' we'll use the PDF print sheet
             document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -73,16 +40,14 @@
                 <section>
                     <section>
                         <h2>Why a New Framework?</h2>
-                    </section>
-                    <section>
-                        <h2>Doesn't This Already Exist?</h2>
+                        <h3 class="fragment question-header">Doesn't This Already Exist?</h3>
                         <ul>
-                            <li>
-                                Layout-focused Frameworks
+                            <li class="fragment">
+                                Layout-focused frameworks
                                 <span class="extra">Semantic.gs, Golden Grid System, Foldy960</span>
                             </li>
-                            <li>
-                                Frameworks with Base UI Elements
+                            <li class="fragment">
+                                Frameworks with base UI elements
                                 <span class="extra">Bootstrap, Foundation, Skeleton, Amazium</span>
                             </li>
                         </ul>
@@ -90,25 +55,25 @@
                     <section>
                         <h2>Why Not Extend An Existing Framework?</h2>
                         <ul>
-                            <li>
+                            <li class="fragment">
                                 We need more <strong>UI components</strong>
-                                <span class="extra">Masthead, ...</span>
+                                <span class="extra">Masthead, calendar, image galleries</span>
                             </li>
-                            <li>Framework may be <strong>deprecated</strong> or <strong>superseded</strong></li>
-                            <li>MWF community won't decide on a <strong>single framework</strong></li>
-                            <li>
+                            <li class="fragment">Framework may be <strong>deprecated</strong> or <strong>superseded</strong></li>
+                            <li class="fragment">MWF community won't decide on a <strong>single framework</strong></li>
+                            <li class="fragment">
                                 Each one does some things <strong>right</strong>, other things <strong>wrong</strong>
-                                <span class="extra">ex: Bootstrap's non-semantic CSS</span>
+                                <span class="extra">ex: Bootstrap's non-semantic CSS (<code>.input-small</code>)</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Many <strong>tools and techniques</strong>, which one to choose?
                                 <span class="extra">20+ responsive image techniques</span>
                             </li>
                         </ul>
                     </section>
-                    <section>
+                    <section data-state="slide-feature">
                         <div class="feature">
-                            <h2>Web Blocks</h2>
+                            <h2 class="feature-header">Web Blocks</h2>
                             <p>
                                 A <strong>framework-agnostic toolkit</strong> that integrates the
                                 best practice responsive tools and techniques.
@@ -121,35 +86,35 @@
                     <section>
                         <h2>What Does It Include?</h2>
                         <ul>
-                            <li>
+                            <li class="fragment">
                                 Basic responsive framework
                                 <span class="extra">Fluid grid, responsive media</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Set of base UI elements
                                 <span class="extra">Headers, buttons, forms</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Javascript/CSS libraries for richer interactivity
-                                <span class="extra">Touch, transitions, ...</span>
+                                <span class="extra">Touch, transitions, geolocation</span>
                             </li>
                         </ul>
                     </section>
                     <section>
                         <h2>And More!</h2>
                         <ul>
-                            <li>
+                            <li class="fragment">
                                 Set of rich, interactive responsive UI components
                                 <span class="extra">Image galleries, calendars</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Responsive images
                                 <span class="extra">On-the-fly compression, image substitution</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Responsive videos
                             </li>
-                            <li>
+                            <li class="fragment">
                                 CSS/JS minification
                             </li>
                         </ul>
@@ -157,15 +122,15 @@
                     <section>
                         <h2>Modular Architecture</h2>
                         <ul>
-                            <li>
+                            <li class="fragment">
                                 Enable/disable individual modules
                                 <span class="extra">Don't need <strong>responsive video</strong>? Disable it!</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Swap out the underlying framework
                                 <span class="extra">Prefer <strong>Foundation</strong> over <strong>Bootstrap</strong>? Use it!</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Support for integrating third-party components
                                 <span class="extra">Don't reinvent the <strong>wheel</strong>; integrate the best <strong>spokes</strong></span>
                             </li>
@@ -176,68 +141,67 @@
                 <section>
                     <section>
                         <h2>The Blocks Builder</h2>
-                        <ul>
-                            <li>
-                                Platform-independence
-                                <span class="extra"><strong>content providers</strong> <em>and</em> <strong>service providers</strong></span>
-                            </li>
-                        </ul>
+                        <p class="fragment">
+                            Platform-independence for both <strong>content providers</strong> <em>and</em> <strong>service providers</strong>
+                        </p>
                     </section>
                     <section>
                         <h2>What Gets Assembled?</h2>
                         <ul>
-                            <li>SASS (<code>.scss</code>) &rarr; Minified CSS and IE CSS</li>
-                            <li>JavaScript (<code>.js</code>) &rarr; Minified JS and IE JS</li>
-                            <li>Standalone JS</li>
-                            <li>Images</li>
+                            <li class="fragment">SASS (<code>.scss</code>) &rarr; Minified CSS and IE CSS</li>
+                            <li class="fragment">JavaScript (<code>.js</code>) &rarr; Minified JS and IE JS</li>
+                            <li class="fragment">Standalone JS</li>
+                            <li class="fragment">Images</li>
                         </ul>
                     </section>
                     <section>
                         <h2>SASS?</h2>
-                        <p>
+                        <p class="fragment">
                             <strong>SASS (Syntactically Awesome Stylesheets)</strong> is a preprocessor that extends
                             CSS to include:
                         </p>
                         <ul>
-                            <!-- Insert Examples -->
-                            <li>Classes</li>
-                            <li>Includes</li>
-                            <li>Functions</li>
-                            <li>Nesting Defintions</li>
-                            <li>And more!</li>
+                            <!-- TODO: Insert examples -->
+                            <li class="fragment">Classes</li>
+                            <li class="fragment">Includes</li>
+                            <li class="fragment">Functions</li>
+                            <li class="fragment">Nesting Defintions</li>
+                            <li class="fragment">And more!</li>
                         </ul>
                     </section>
                     <section>
                         <h2>What Not Use Compass?</h2>
                         <ul>
-                            <li>
+                            <li class="fragment">
                                 <strong>Compass</strong> is a SASS extension
                                 <span class="extra">Handles builds, provides useful SASS functions</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 Can't handle modular adapter architecture
                             </li>
                         </ul>
                     </section>
-                    <section>
+                    <section data-state="slide-feature">
                         <div class="feature">
-                            <h2>Web Blocks Builder</h2>
+                            <h2 class="feature-header">Web Blocks Builder</h2>
                             <p>
+                                <!-- TODO: Insert description -->
                                 Awesome description!
                             </p>
                         </div>
                     </section>
                     <section>
                         <h2>Demo</h2>
+                        <!-- TODO: Insert demo -->
                     </section>
                     <section>
                         <h2>What Can The Builder Do?</h2>
                         <ul>
-                            <li>Load only the Web Blocks definitions you want</li>
-                            <li>Load a set of framework adapters</li>
-                            <li>Load organization-specific extensions</li>
-                            <li>Compile with the application's source files</li>
-                            <li>Build into an application's assets directory</li>
+                            <li class="fragment">Load only the Web Blocks <strong>definitions you want</strong></li>
+                            <li class="fragment">Load a set of <strong>framework adapters</strong></li>
+                            <li class="fragment">Load <strong>organization-specific extensions</strong></li>
+                            <li class="fragment">Compile with the <strong>application's source files</strong></li>
+                            <li class="fragment">Build into an <strong>application's assets directory</strong></li>
                         </ul>
                     </section>
                 </section>
@@ -245,23 +209,23 @@
                 <section>
                     <section>
                         <h2>Defining the Toolkit's Elements</h2>
-                        <!-- Include example of redefining semantics here -->
+                        <!-- TODO: Include example of redefining semantics here -->
                     </section>
                     <section>
                         <h2>Defining Our Own Semantics</h2>
                         <ul>
-                            <li>Allows for modular framework adapters</li>
-                            <li>Developers can use existing framework, plus Web Blocks features
-                            <li>
-                                We borrow from the frameworks...
+                            <li class="fragment">Allows for <strong>modular framework adapters</strong></li>
+                            <li class="fragment">Can use <strong>existing framework</strong>, plus Web Blocks features
+                            <li class="fragment">
+                                We <strong>borrow</strong> from the frameworks...
                                 <span class="extra">Use <strong>Bootstrap's</strong> table styles</span>
                             </li>
-                            <li>
-                                ...but also extend them
+                            <li class="fragment">
+                                ...but also <strong>extend</strong> them
                                 <span class="extra">Add the <code>.highlight</code> option to table rows</span>
                             </li>
-                            <li>
-                                Some elements don't exist in other frameworks
+                            <li class="fragment">
+                                Some elements <strong>don't exist</strong> in other frameworks
                                 <span class="extra"><strong>Masthead</strong> element</span>
                             </li>
                         </ul>
@@ -269,23 +233,23 @@
                     <section>
                         <h2>Creating An Element</h2>
                         <ol>
-                            <li>
+                            <li class="fragment">
                                 <strong>Research:</strong> Current usages, specifications
                                 <span class="extra"><code>blockquote</code> popular convention vs. specification</span>
                             </li>
-                            <li>
+                            <li class="fragment">
                                 <strong>Define:</strong> Formal definition, prototype, examples
-                                <!-- Insert prototype example here -->
+                                <!-- TODO: Insert prototype example here -->
                             </li>
-                            <li>
+                            <li class="fragment">
                                 <strong>Develop:</strong> Basic styling, adapters
-                                <!-- Insert adapter example here -->
+                                <!-- TODO: Insert adapter example here -->
                             </li>
                         </ol>
                     </section>
                     <section>
                         <h2>Demo</h2>
-                        <!-- Insert examples of prototypes here -->
+                        <!-- TODO: Insert examples of prototypes here -->
                     </section>
                 </section>
                 
@@ -293,17 +257,17 @@
                     <section>
                         <h2>Collaborative Efforts</h2>
                         <ul>
-                            <li>Open-source codebase (GitHub Repository)</li>
-                            <li>Organizations can <strong>fork</strong> and <strong>customize</strong> the framework</li>
+                            <li class="fragment">Open-source codebase (GitHub Repository)</li>
+                            <li class="fragment">Organizations can <strong>fork</strong> and <strong>customize</strong> the framework</li>
                         </ul>
                     </section>
                     <section>
                         <h2>Consuming the Framework</h2>
                         <ul>
-                            <li>Full, compiled version</li>
-                            <li>Customized build</li>
-                            <li>Organization-hosted fork</li>
-                            <li>Individual fork</li>
+                            <li class="fragment">Full, compiled version</li>
+                            <li class="fragment">Customized build</li>
+                            <li class="fragment">Organization-hosted fork</li>
+                            <li class="fragment">Individual fork</li>
                         </ul>
                     </section>
                 </section>
