@@ -115,9 +115,19 @@ p.label {
     padding: 0 0 0 70px;
 }
 
-.extra
+ol .extra
+{
+	padding: 0 0 0 40px;
+}
+
+.extra, .question-header, h3.question-header
 {
     color: #71E9F4;
+}
+
+.question-header, h3.question-header
+{
+    margin-top: 50px;
 }
 
 .feature
@@ -134,6 +144,18 @@ p.label {
 .feature .extra
 {
     padding: 0;
+}
+
+.feature-header, h2.feature-header
+{
+    color: #FECD05;
+    text-shadow: 0 5px 0 #DBA000,
+					0 -1px 0 #FFEAB2;
+}
+
+.slide-feature .state-background
+{
+    background: rgba(30, 104, 200, 0.5);
 }
 
 .cite {
