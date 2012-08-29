@@ -35,6 +35,317 @@
                         <p>Eric Bollens / <a href="mailto:ebollens@ucla.edu">ebollens@ucla.edu</a> / <a href="http://twitter.com/ericbollens" target="_blank">@ericbollens</a></p>
                     </footer>
                 </section>
+                
+                <section>
+                    <section>
+                        <div class="feature" style="margin-top: 80px;">
+                            <h2>The Web is Flexible</h2>
+                            <p class="fragment">
+                                The control which designers know in the print medium...
+                                is simply a function of the limitation of the printed page.</p>
+                            <p class="fragment">
+                                We should embrace the fact that the web doesn't have the
+                                same constraints, and <strong>design for this flexibility</strong>.
+                            </p>
+                            <p class="cite fragment">~ John Allsopp, <a href="http://www.alistapart.com/articles/dao/" target="_blank">A Dao of Web Design</a></p>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Why Do We Care?</h2>
+                        <p class="fragment">First, there was the desktop</p>
+                        <ul>
+                            <li class="fragment">What size do we target?</li>
+                            <li class="fragment">How about percentage-based designs?</li>
+                        </ul>
+                        <p class="fragment">Then there was mobile</p>
+                        <ul>
+                            <li class="fragment">Different browsing experience, different app</li>
+                            <li class="fragment">Strategies like MVC and SOA redundancy</li>
+                        </ul>
+                        <p class="fragment"><strong>But is that enough anymore?</strong></p>
+                    </section>
+                    <section>
+                        <h2>The Changing Demographic</h2>
+                        <p class="fragment">Tablets are somewhere in the middle</p>
+                        <ul class="fragment">
+                            <li>Do we treat them as mobile or desktop?</li>
+                        </ul>
+                        <p class="fragment">Mobile devices are used in many ways</p>
+                        <ul class="fragment">
+                            <li>A different experience doesn't always make sense</li>
+                        </ul>
+                        <p class="fragment"><strong>It's time for a paradigm shift</strong></p>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Responsive Design</h2>
+                        <p class="fragment">The ingredients:</p>
+                        <ul>
+                            <li class="fragment">Flexible grid</li>
+                            <li class="fragment">Flexible media</li>
+                            <li class="fragment">Media queries</li>
+                        </ul>
+                        <p class="fragment cite">Ethan Marcotte in <a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">Responsive Web Design</a> (2010)</p>
+                    </section>
+                    <section>
+                        <h2>Responsive Design</h2>
+                        <table>
+                            <tr>
+                                <td class="fragment"><img src="img/responsive-marcotte-ex-1.png"></td>
+                                <td class="fragment"><img src="img/responsive-marcotte-ex-2.png"></td>
+                                <td class="fragment"><img src="img/responsive-marcotte-ex-3.png"></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Responsive Design</h2>
+                        <table>
+                            <tr>
+                                <td class="fragment"><img src="img/responsive-mwf-conference-ex-1.png"></td>
+                                <td class="fragment"><img src="img/responsive-mwf-conference-ex-2.png"></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Benefits of Responsive Design</h2>
+                        <ol>
+                            <li class="fragment">Save money and time</li>
+                            <li class="fragment">Stay relevant to all viewers</li>
+                            <li class="fragment">Don't guess at what the user wants</li>
+                            <li class="fragment">Provide a consistent experience</li>
+                        </ol>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>The Flexible Grid</h2>
+                        <p class="fragment">Proportional design</p>
+                        <ul>
+                            <li class="fragment">Percentages, not pixels</li>
+                        </ul>
+                        <p class="fragment">But what about those pretty Photoshop designs?</p>
+                        <ul>
+                            <li class="fragment">target &div; context = result</li>
+                        </ul>
+                        <p class="fragment">Works for widths, heights, fonts, margins, etc.</p>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>A Fixed-Width Design</h2>
+                        </hgroup>
+                        <table>
+                            <tr>
+                                <td class="fragment"><pre><code lang="css">#container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#content {
+    margin-left: 240px;
+    width: 720px;
+}
+
+#menu {
+    width: 220px;
+}
+</code></pre></td>
+                                <td style="width:500px" class="fragment"><pre><code lang="html">&lt;div id="container"&gt;
+
+    &lt;div id="menu"&gt;
+        &lt;!-- MENU ITEMS --&gt;
+    &lt;/div&gt;
+
+    &lt;div id="content"&gt;
+        &lt;!-- PAGE CONTENT --&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Converting to Fluid Width</h2>
+                        </hgroup>
+                        <table>
+                            <tr>
+                                <td class="fragment"><pre><code lang="css">#container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#content {
+    margin-left: 240px;
+    width: 720px;
+}
+
+#menu {
+    width: 220px;
+}
+</code></pre></td>
+                                <td class="fragment"><pre><code lang="css">#container {
+    <span class="fragment">width: 93.75%;       /* 960 &div; 1024 = 93.75 */</span>
+    <span class="fragment">margin: 0 auto;</span>
+}
+
+#content {
+    <span class="fragment">margin-left: 25%;    /* 240 &div; 960 = 25.00 */</span>
+    <span class="fragment">width: 75%;          /* 720 &div; 960 = 75.00 */</span>
+}
+
+#menu {
+    <span class="fragment">width: 22.916667%;   /* 220 &div; 960 = 22.916.. */</span>
+}
+</code></pre></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>What about Fonts?</h2>
+                        </hgroup>
+                        <table>
+                            <tr>
+                                <td class="fragment"><pre><code lang="css">body {
+    font: normal 100%;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#menu {
+    font-size: 20px;
+}
+
+#menu li.subtext {
+    font-size: 13px;
+}</code></pre></td>
+                                <td class="fragment"><pre><code lang="css">body {
+    <span class="fragment">font: normal 100%;    /* 16 */</span>
+}
+
+h1 {
+    <span class="fragment">font-size: 2em;       /* 32 &div; 16 = 2 */</span>
+}
+
+#menu {
+    <span class="fragment">font-size: 1.25em;    /* 20 &div; 16 = 1.25 */</span>
+}
+
+#menu li.subtext {
+    <span class="fragment">font-size: 0.65em;    /* 13 &div; 20 = 0.65 */</span>
+}</code></pre></td>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Media Queries</h2>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Responsive Media</h2>
+                        <p class="fragment">Images have a fixed size</p>
+                        <p class="fragment">...so what happens when we go fluid?</p>
+                        <table>
+                            <tr>
+                                <td class="fragment"><img src="img/responsive-opera-large-ex.png" style="height: 200px; margin-top: 0"></td>
+                                <td class="fragment"><img src="img/responsive-opera-small-overflow-ex.png" style="height: 200px; margin-top: 0"></td>
+                            </tr>
+                        </table>
+                        <p class="fragment">But that's not how Opera's site looks!</p>
+                    </section>
+                    <section>
+                        <h2>Responsive Media</h2>
+                        <p class="fragment">What did they do?</p>
+                        <pre class="fragment" style="margin: 0 70px; width: auto"><code lang="css">img {
+    max-width: 100%;
+}</code></pre>
+                        <p class="fragment cite">Richard Rutter in <a href="http://clagnut.com/blog/268/" target="_blank">Images in liquid columns</a> (2003)</p>
+                        <p class="fragment">Yep, that's it!</p>
+                        <p class="fragment">What about other media?</p>
+                        <pre class="fragment" style="margin: 0 70px; width: auto"><code lang="css">img, embed, object, video {
+    max-width: 100%;
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>What About Performance?</h2>
+                        <p class="fragment">Scaling looks bad in IE</p>
+                        <pre class="fragment"><code>#my-image{
+    background: none;
+    filter: progid:DXImageTransform.Micrisoft.AlphaImageLoader(
+        src="/img/example.png", sizingMethod="scale");
+}</code></pre>
+                        <p class="fragment">But we're still wasting bytes...</p>
+                        <ul>
+                            <li class="fragment">Media queries</li>
+                            <li class="fragment">Anticipatory "polyfills"</li>
+                            <li class="fragment">Dynamic image compression</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Media Queries</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="html">&lt;img src="/img/small.jpg" alt="My Image" class="small"&gt;
+&lt;img src="/img/medium.jpg" alt="My Image" class="medium"&gt;
+&lt;img src="/img/large.jpg" alt="My Image" class="large"&gt;</code></pre>
+                        <pre class="fragment"><code lang="css">@media screen and (min-width: 600px) {
+  <span class="fragment">.small, .medium { display: none; }</span>
+}
+
+@media screen and (min-width: 440px) {
+  <span class="fragment">.small, .large { display: none; }</span>
+}
+
+@media screen and (max-width: 439px) {
+  <span class="fragment">.medium, .large { display: none; }</span>
+}</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Anticipatory "Polyfills"</h2>
+                            <pre class="fragment"><code lang="html">&lt;figure class="responsive" title="My Image" 
+        <span class="fragment">data-media440="/img/medium.png" data-media600="/img/large.png" </span>
+        data-media="/img/small.png"&gt;
+    <span class="fragment">&lt;noscript&gt;
+        &lt;img src="/img/large.png" alt="My Image"&gt;
+    &lt;/noscript&gt;</span>
+&lt;/figure&gt;</code></pre>
+                            <pre class="fragment"><code lang="html">&lt;picture alt="My Image"&gt;
+    &lt;source src="/img/small.png"&gt;
+    <span class="fragment">&lt;source src="/img/medium.png" media="(min-width:440px)"&gt;
+    &lt;source src="/img/large.png" media="(min-width:600px)"&gt;</span>
+    <span class="fragment">&lt;noscript&gt;
+        &lt;img src="/img/large.png" alt="My Image"&gt;
+    &lt;/noscript&gt;</span>
+&lt;/picture&gt;</code></pre>
+                        </hgroup>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Dynamic Image Compression</h2>
+                        </hgroup>
+                        <p class="fragment"><a href="http://mwf.ucla.edu" target="_blank">MWF</a> can do compression from a server farm</p>
+                        <pre class="fragment"><code lang="html">&lt;img src="assets/min/img.php?img=http%3A%2F%2Fdomain%2Fimg%2Fexample.png"&gt;</code></pre>
+                        <p class="fragment"><a href="http://adaptive-images.com/" target="_blank">Adaptive Images</a> uses .htaccess to compress transparently</p>
+                        <p class="fragment">Numerous other libraries out there as well</p>
+                    </section>
+                </section>
 
                 <section>
                     <h1>THANK YOU</h1>

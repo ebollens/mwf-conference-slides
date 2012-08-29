@@ -96,3 +96,46 @@ p.label {
 .highlight {
     color: #FFAA00;
 }
+
+.question, .answer
+{
+    display: block;
+}
+
+.question
+{
+    color: #13DAEC;
+}
+
+.extra, .cite
+{
+    display: block;
+    font-size: 1em;
+    font-style: italic;
+    padding: 0 0 0 70px;
+}
+
+.extra
+{
+    color: #71E9F4;
+}
+
+.feature
+{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.feature h2
+{
+    font-size: 3em;
+}
+
+.feature .extra
+{
+    padding: 0;
+}
+
+.cite {
+    color: #ccc;
+}
