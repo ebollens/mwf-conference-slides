@@ -150,6 +150,7 @@
 }
 
 #menu {
+    float: left;
     width: 220px;
 }
 </code></pre></td>
@@ -185,12 +186,13 @@
 }
 
 #menu {
+    float: left;
     width: 220px;
 }
 </code></pre></td>
                                 <td class="fragment"><pre><code lang="css">#container {
     <span class="fragment">width: 93.75%;       /* 960 &div; 1024 = 93.75 */</span>
-    <span class="fragment">margin: 0 auto;</span>
+    margin: 0 auto;
 }
 
 #content {
@@ -199,6 +201,7 @@
 }
 
 #menu {
+    float: left;
     <span class="fragment">width: 22.916667%;   /* 220 &div; 960 = 22.916.. */</span>
 }
 </code></pre></td>
@@ -249,7 +252,121 @@ h1 {
                 
                 <section>
                     <section>
+                        <h2>Breaking the Flexible Grid</h2>
+                        <p class="fragment">Flexible grid still has limits</p>
+                        <table>
+                            <tr>
+                                <td class="fragment"><img src="img/responsive-mwf-conference-fluid-broken-ex-1.png" style="height: 400px; margin-top: 0"></td>
+                                <td class="fragment"><img src="img/responsive-mwf-conference-fluid-broken-ex-2.png" style="height: 400px; margin-top: 0"></td>
+                                <td class="fragment"><img src="img/responsive-mwf-conference-fluid-broken-ex-3.png" style="height: 400px; margin-top: 0"></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Flexible isn't flexible enough</h2>
+                        <p class="fragment">Flexible grid can...</p>
+                        <ul>
+                            <li class="fragment">constrict content on a small screen</li>
+                            <li class="fragment">isolate content within whitespace on a large screen</li>
+                        </ul>
+                        <p class="fragment">Enter the media query</p>
+                        <pre class="fragment"><code lang="css">@media screen and (max-width: 479px){
+    .ex {
+        // ...
+    }
+}</code></pre>
+                    </section>
+                    <section>
                         <h2>Media Queries</h2>
+                        <div class="fragment">
+                        <p>Many detectable features available</p>
+                        <pre><code lang="css"><span class="fragment">@media (max-width: 479px){ }</span>            <span class="fragment">@media (min-width: 480px){ }</span>
+<span class="fragment">@media (max-height: 479px){ }           @media (min-height: 480px){ }</span>
+<span class="fragment">@media (max-device-width: 479px){ }     @media (min-device-width: 480px){ }
+@media (max-device-height: 479px){ }    @media (min-device-height: 480px){ }</span>
+<span class="fragment">@media (orientation: portrait){ }       @media (orientation: landscape){ }</span>
+<span class="fragment">@media (min-aspect-ratio: 16/9){ }      @media (max-aspect-ratio: 16/9){ }
+@media (min-deviceaspect-ratio: 3/2){ } @media (device-aspect-ratio: 16/9){ }</span>
+<span class="fragment">@media (min-color: 8){ }                @media (max-color: 32){ }
+@media (min-color-index: 256){ }        @media (max-color-index: 65536){ }</span>
+<span class="fragment">@media (min-resolution: 300dpi){ }      @media (max-resolution:299dpi){ }
+@media (min-resolution: 300dpi){ }      @media (max-resolution:299dpi){ }</span></code></pre>
+                        </div>
+                        <p class="fragment">Chain multiple together with <code>and</code> keyword</p>
+                        <pre class="fragment"><code lang="css">@media (min-width: 480px) and (max-width:799px) { }</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>The "Broken" Flexible Grid</h2>
+                        </hgroup>
+                        <table>
+                            <tr>
+                                <td class="fragment"><pre><code lang="css">#container {
+    width: 93.75%;
+    margin: 0 auto;
+}
+
+#content {
+    margin-left: 25%;
+    width: 75%;
+}
+
+#menu {
+    float: left;
+    width: 22.916667%;
+}
+</code></pre></td>
+                                <td style="width:500px" class="fragment"><pre><code lang="html">&lt;div id="container"&gt;
+
+    &lt;div id="menu"&gt;
+        &lt;!-- MENU ITEMS --&gt;
+    &lt;/div&gt;
+
+    &lt;div id="content"&gt;
+        &lt;!-- PAGE CONTENT --&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre></td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Adding Media Queries to Flexible Grid</h2>
+                        </hgroup>
+                        <table>
+                            <tr>
+                                <td class="fragment"><pre><code lang="css">#container {
+    width: 93.75%;
+    margin: 0 auto;
+}
+
+#content {
+    margin-left: 25%;
+    width: 75%;
+}
+
+#menu {
+    float: left;
+    width: 22.916667%;
+}
+</code></pre></td>
+                                <td style="width:500px" class="fragment"><pre><code lang="css">@media <span class="fragment">(max-width: 640px)</span>{
+    #menu {
+        <span class="fragment">width: 100%;</span>
+        <span class="fragment">margin-bottom: 0.5em;</span>
+    }
+    
+    #content {
+        <span class="fragment">clear: left;</span>
+        <span class="fragment">width: 100%;</span>
+        <span class="fragment">margin: 0;</span>
+    }
+}</code></pre></td>
+                            </tr>
+                        </table>
                     </section>
                 </section>
                 
@@ -345,6 +462,36 @@ h1 {
                         <p class="fragment"><a href="http://adaptive-images.com/" target="_blank">Adaptive Images</a> uses .htaccess to compress transparently</p>
                         <p class="fragment">Numerous other libraries out there as well</p>
                     </section>
+                </section>
+                
+                <section>
+                    <h2>Mobile First</h2>
+                    <p class="fragment">Not technically part of responsive design</p>
+                    <p class="fragment">but an effective strategy for building responsive sites</p>
+                    <ul>
+                        <li class="fragment">Lay out your content linearly first</li>
+                        <li class="fragment">As viewport widens, add complexity and asymmetry</li>
+                        <li class="fragment">Use <code>min-width</code>, not <code>max-width</code></li>
+                    </ul>
+                    <p class="fragment">Progressive enhancement, not graceful degradation</p>
+                </section>
+                
+                <section>
+                    <h2>The Landscape Today</h2>
+                    <p class="fragment">These techniques are supported by modern browsers, but...</p>
+                    <ul>
+                        <li class="fragment">
+                            IE 8 and below don't support media queries
+                            <span class="extra fragment">Respond.js, CSS3-mediaqueries.js, Adapt.js, etc.</span>
+                        </li>
+                        <li class="fragment">
+                            Partial support in some browsers for psuedo-selectors
+                            <span class="extra fragment">Selectivizr</span>
+                        </li>
+                    </ul>
+                    <p class="fragment">Responsive design is a viable choice today</p>
+                    <p class="fragment">... if not the almost obvious choice</p>
+                    <p class="fragment">And it is the future of MWF</p>
                 </section>
 
                 <section>
