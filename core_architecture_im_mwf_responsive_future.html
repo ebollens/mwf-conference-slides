@@ -91,22 +91,18 @@
                                 <span class="extra">Fluid grid, responsive media</span>
                             </li>
                             <li class="fragment">
-                                Set of base UI elements
+                                Base UI elements
                                 <span class="extra">Headers, buttons, forms</span>
                             </li>
                             <li class="fragment">
-                                Javascript/CSS libraries for richer interactivity
-                                <span class="extra">Touch, transitions, geolocation</span>
+                                Rich, interactive responsive UI components
+                                <span class="extra">Image galleries, calendars, modal dialogs</span>
                             </li>
                         </ul>
                     </section>
                     <section>
                         <h2>And More!</h2>
                         <ul>
-                            <li class="fragment">
-                                Set of rich, interactive responsive UI components
-                                <span class="extra">Image galleries, calendars</span>
-                            </li>
                             <li class="fragment">
                                 Responsive images
                                 <span class="extra">On-the-fly compression, image substitution</span>
@@ -140,10 +136,12 @@
                 
                 <section>
                     <section>
-                        <h2>The Blocks Builder</h2>
-                        <p class="fragment">
-                            Platform-independence for both <strong>content providers</strong> <em>and</em> <strong>service providers</strong>
-                        </p>
+						<div class="feature">
+							<h2>Building Web Blocks</h2>
+							<p class="fragment">
+								Platform-independence for both <strong>content providers</strong> <em>and</em> <strong>service providers</strong>
+							</p>
+						</div>
                     </section>
                     <section>
                         <h2>What Gets Assembled?</h2>
@@ -170,7 +168,7 @@
                         </ul>
                     </section>
                     <section>
-                        <h2>What Not Use Compass?</h2>
+                        <h2>Why Not Use Compass?</h2>
                         <ul>
                             <li class="fragment">
                                 <strong>Compass</strong> is a SASS extension
@@ -185,8 +183,7 @@
                         <div class="feature">
                             <h2 class="feature-header">Web Blocks Builder</h2>
                             <p>
-                                <!-- TODO: Insert description -->
-                                Awesome description!
+                                A modular, extensible compiler for the framework
                             </p>
                         </div>
                     </section>
@@ -209,7 +206,32 @@
                 <section>
                     <section>
                         <h2>Defining the Toolkit's Elements</h2>
-                        <!-- TODO: Include example of redefining semantics here -->
+						
+						<div class="fragment">
+							<h3 class="example-header">Bootstrap</h3>
+							<pre><code class="html">&lt;ul class="breadcrumb"&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+	&lt;li class="active"&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+						</div>
+
+						<div class="fragment">
+							<h3 class="example-header">Foundation</h3>
+							<pre><code class="html">&lt;ul class="breadcrumbs"&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+	&lt;li class="current"&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+						</div>
+
+						<div class="fragment">
+							<h3 class="example-header">Web Blocks</h3>
+							<pre><code class="html">&lt;nav class="breadcrumb"&gt;
+	&lt;ol&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+		&lt;li class="active"&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+						</div>
                     </section>
                     <section>
                         <h2>Defining Our Own Semantics</h2>
@@ -236,20 +258,28 @@
                             <li class="fragment">
                                 <strong>Research:</strong> Current usages, specifications
                                 <span class="extra"><code>blockquote</code> popular convention vs. specification</span>
-                            </li>
+                            </li>    
                             <li class="fragment">
                                 <strong>Define:</strong> Formal definition, prototype, examples
-                                <!-- TODO: Insert prototype example here -->
                             </li>
                             <li class="fragment">
                                 <strong>Develop:</strong> Basic styling, adapters
-                                <!-- TODO: Insert adapter example here -->
                             </li>
                         </ol>
                     </section>
                     <section>
-                        <h2>Demo</h2>
-                        <!-- TODO: Insert examples of prototypes here -->
+                        <h2>Demo: Defining Table</h2>
+                        <ol>
+							<li class="fragment">
+								<a href="https://github.com/ucla/WebBlocks/wiki/Entity-Table">Research</a>
+							</li>
+							<li class="fragment">
+								<a href="https://github.com/ucla/WebBlocks/tree/master/template/entity/table">Define</a>
+							</li>
+							<li class="fragment">
+								<a href="https://github.com/ucla/WebBlocks/blob/master/src/adapter/bootstrap/entity/_table.scss">Develop</a>
+							</li>
+						</ol>
                     </section>
                 </section>
                 
@@ -257,7 +287,7 @@
                     <section>
                         <h2>Collaborative Efforts</h2>
                         <ul>
-                            <li class="fragment">Open-source codebase (GitHub Repository)</li>
+                            <li class="fragment"><strong>Open-source</strong> codebase (GitHub Repository)</li>
                             <li class="fragment">Organizations can <strong>fork</strong> and <strong>customize</strong> the framework</li>
                         </ul>
                     </section>
