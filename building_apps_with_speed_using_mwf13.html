@@ -131,17 +131,6 @@ menu.addMenuLinkItem('Item 2', '#2');</code></pre>
                         </table>
                     </section>
                     <section>
-                        <h2>Advantages to MVC</h2>
-                        <p class="fragment">First and foremost, good software engineering</p>
-                        <p class="fragment">For MWF, segregate views from business logic</p>
-                        <p class="fragment">Minimize effort to build mobile &amp; desktop sites</p>
-                        <ul>
-                            <li class="fragment">Reuse controllers and models</li>
-                            <li class="fragment">Create different views for mobile &amp; desktop</li>
-                            <li class="fragment">Possibly reuse elementary views for both contexts</li>
-                        </ul>
-                    </section>
-                    <section>
                         <hgroup>
                             <h4>Example</h4>
                             <h2>Basic Menu View (PHP)</h2>
@@ -183,6 +172,17 @@ end</code></pre>
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
                     </section>
+                    <section>
+                        <h2>Advantages to MVC</h2>
+                        <p class="fragment">First and foremost, good software engineering</p>
+                        <p class="fragment">For MWF, segregate views from business logic</p>
+                        <p class="fragment">Minimize effort to build mobile &amp; desktop sites</p>
+                        <ul>
+                            <li class="fragment">Reuse controllers and models</li>
+                            <li class="fragment">Create different views for mobile &amp; desktop</li>
+                            <li class="fragment">Possibly reuse elementary views for both contexts</li>
+                        </ul>
+                    </section>
                 </section>
                 
                 <section>
@@ -191,7 +191,6 @@ end</code></pre>
                         <p class="fragment"><strong>Service Provider</strong></p>
                         <ul>
                             <li class="fragment">Expose business logic through service interface</li>
-                            <li class="fragment">Mediate &amp; manipulate data based on services</li>
                         </ul>
                         <p class="fragment"><strong>Service Consumer</strong></p>
                         <ul>
@@ -226,7 +225,7 @@ end</code></pre>
                     <section>
                         <hgroup>
                             <h4>Example</h4>
-                            <h2>Degradable Preloading</h2>
+                            <h2>AJAX Progressive Enhancement</h2>
                         </hgroup>
                         <pre class="fragment"><code lang="html">&lt;a href="example.php" class="button preload"&gt;Example&lt;/a&gt;</code></pre>
                         <pre class="fragment"><code lang="javascript">if(mwf.classification.isStandard()){
