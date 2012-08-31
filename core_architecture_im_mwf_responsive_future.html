@@ -140,57 +140,67 @@
 						<div class="feature">
 							<h2>Building Web Blocks</h2>
 							<p class="fragment">
-								Platform-independence for both <strong>content providers</strong> <em>and</em> <strong>service providers</strong>
+								A platform-independent build process geared for both <strong>content providers</strong> <em>and</em> <strong>service providers</strong>
 							</p>
 						</div>
                     </section>
                     <section>
                         <h2>What Gets Assembled?</h2>
                         <ul>
-                            <li class="fragment">SASS (<code>.scss</code>) &rarr; Minified CSS and IE CSS</li>
-                            <li class="fragment">JavaScript (<code>.js</code>) &rarr; Minified JS and IE JS</li>
-                            <li class="fragment">Standalone JS</li>
-                            <li class="fragment">Images</li>
+                            <li class="fragment">SASS (<code>.scss</code>) 
+                                <span class="extra">&rarr; Minified Core CSS</span>
+                                <span class="extra">&rarr; Minified IE CSS</li>
+                            <li class="fragment">JavaScript (<code>.js</code>) 
+                                <span class="extra">&rarr; Minified Core JS</span>
+                                <span class="extra">&rarr; Minified IE JS</span>
+                                <span class="extra">&rarr; Minified JS Scripts</span>
+                            </li>
+                            <li class="fragment">Images, fonts and other assets</li>
                         </ul>
                     </section>
                     <section>
                         <h2>SASS?</h2>
                         <p class="fragment">
-                            <strong>SASS (Syntactically Awesome Stylesheets)</strong> is a preprocessor that extends
-                            CSS to include:
+                            A preprocessor that extends CSS to include:
                         </p>
                         <ul>
-                            <!-- TODO: Insert examples -->
-                            <li class="fragment">Classes</li>
                             <li class="fragment">Includes</li>
                             <li class="fragment">Functions</li>
-                            <li class="fragment">Nesting Defintions</li>
-                            <li class="fragment">And more!</li>
+                            <li class="fragment">Nesting</li>
+                            <li class="fragment">Extensibility</li>
                         </ul>
                     </section>
                     <section>
-                        <h2>Why Not Use Compass?</h2>
+                        <h2>How About Compass?</h2>
+                        <p class="fragment">Compass extends SASS with:</p>
                         <ul>
-                            <li class="fragment">
-                                <strong>Compass</strong> is a SASS extension
-                                <span class="extra">Handles builds, provides useful SASS functions</span>
-                            </li>
-                            <li class="fragment">
-                                Can't handle modular adapter architecture
-                            </li>
+                            <li class="fragment">CSS and JS builder</li>
+                            <li class="fragment">Reusable CSS patterns and mixins</li>
+                            <li class="fragment">Typography and sprites</li>
+                        </ul>
+                        <p class="fragment">But it still isn't quite enough</p>
+                    </section>
+                    <section>
+                        <h2>Beyond SASS &amp; Compass</h2>
+                        <p class="fragment">Neither support our modularity goals:</p>
+                        <ul>
+                            <li class="fragment">Definition modules</li>
+                            <li class="fragment">Adapters</li>
+                            <li class="fragment">Extensions</li>
+                        </ul>
+                        <p class="fragment">Need to flexibly assemble our assets:</p>
+                        <ul>
+                            <li class="fragment">Assets defined within an application</li>
+                            <li class="fragment">While using framework definitions and adapters</li>
                         </ul>
                     </section>
                     <section data-state="slide-feature">
                         <div class="feature">
                             <h2 class="feature-header">Web Blocks Builder</h2>
                             <p>
-                                A modular, extensible compiler for the framework
+                                A modular, extensible assembler and compiler<br> for the framework
                             </p>
                         </div>
-                    </section>
-                    <section>
-                        <h2>Demo</h2>
-                        <!-- TODO: Insert demo -->
                     </section>
                     <section>
                         <h2>What Can The Builder Do?</h2>
@@ -201,6 +211,14 @@
                             <li class="fragment">Compile with the <strong>application's source files</strong></li>
                             <li class="fragment">Build into an <strong>application's assets directory</strong></li>
                         </ul>
+                    </section>
+                    <section data-state="slide-feature">
+                        <div class="feature">
+                            <h2 class="feature-header">Demo</h2>
+                            <p>
+                                ECTA's PHP Framework
+                            </p>
+                        </div>
                     </section>
                 </section>
                 
