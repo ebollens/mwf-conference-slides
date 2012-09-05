@@ -83,7 +83,7 @@
                                 <td>
                                     <p class="text-right"><strong>Basic</strong></p>
                                 </td>
-                                <td>
+                                <td style="padding-bottom: 36px;">
                                     <ul class="small">
                                         <li>XHTML MP 1.0</li>
                                         <li>WCSS</li>
@@ -96,7 +96,7 @@
                                 <td>
                                     <p class="text-right"><strong>Standard</strong></p>
                                 </td>
-                                <td>
+                                <td style="padding-bottom: 36px;">
                                     <ul class="small">
                                         <li>HTML 4.01</li>
                                         <li>CSS 2.1</li>
@@ -119,7 +119,6 @@
                                     <ul class="small">
                                         <li>HTML 5</li>
                                         <li>CSS 3</li>
-                                        <li>Javascript 1.5</li>
                                     </ul>
                                 </td>
                                 <td>
@@ -148,9 +147,9 @@
                     </section>
                     <section>
                         <h2>Custom CSS files</h2>
-                        <p class="fragment">Core CSS is loaded from <code>/root/css/default</code></p>
-                        <p class="fragment">Custom CSS goes other subdirectories within <code>/root/css</code></p>
-                        <p class="fragment">Loaded in FIFO order from <code>/config/css.ini</code></p>
+                        <p class="fragment">Core CSS is loaded from <code class="extra">/root/css/default</code></p>
+                        <p class="fragment">Custom CSS goes other subdirectories within <code class="extra">/root/css</code></p>
+                        <p class="fragment">Loaded in FIFO order from <code class="extra">/config/css.ini</code></p>
                         <p class="fragment">Good for institutional-specific overrides</p>
                     </section>
                     <section>
@@ -194,6 +193,7 @@
                         <ul>
                             <li class="fragment">Writing cookies</li>
                             <li class="fragment">First-load problem</li>
+                            <li class="fragment">Cross-domain</li>
                         </ul>
                         <p class="fragment">What about devices without Javascript?</p>
                         <ul>
@@ -263,8 +263,8 @@
                         <p class="fragment">Mobile redirection script</p>
                         <ul>
                             <li class="fragment"><code>assets/redirect/js.php?m=[URL]</code></li>
-                            <li class="fragment">Prevent by <code>override_redirect=1</code></li>
-                            <li class="fragment">Unset by <code>override_redirect=0</code></li>
+                            <li class="fragment">Prevent by <code>?override_redirect=1</code></li>
+                            <li class="fragment">Unset by <code>?override_redirect=0</code></li>
                         </ul>
                     </section>
                 </section>
@@ -325,7 +325,7 @@ echo $decorator->render();</code></pre>
                         <p class="fragment">Site decorators extend underlying HTML decorators</p>
                         <pre class="fragment"><code lang="php">class Content_Site_Decorator extends Tag_HTML_Decorator
 {
-    public function __construct($inner = array(), $params = array())
+    public function __construct($inner = '', $params = array())
     {
         parent::__construct('div', $inner, $params);
         $this->add_class('content');
@@ -378,7 +378,7 @@ echo $decorator->render();</code></pre>
                     </section>
                     <section>
                         <h2>How Does This Work?</h2>
-                        <pre><code lang="html">&lt;div class="<strong>expandable example</strong>"&gt;
+                        <pre class="fragment"><code lang="html">&lt;div class="<strong>expandable example</strong>"&gt;
     &lt;h2&gt;Expandable Target&lt;/h2&gt;
     &lt;p&gt;This div will expand when Trigger is pressed&lt;/p&gt;
 &lt;/div&gt;
@@ -476,7 +476,6 @@ echo $decorator->render();</code></pre>
                             <li class="fragment">Override styles and other simple things</li>
                             <li class="fragment">Pull from MWF repository to upgrade</li>
                         </ul>
-                        <p class="fragment">Some campuses have developers fork campus repository</p>
                         <p class="fragment">Core developers fork from MWF or campus repository</p>
                     </section>
                     <section>

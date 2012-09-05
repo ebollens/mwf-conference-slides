@@ -212,8 +212,8 @@ menu.addMenuLinkItem('Item 2', '#2');</code></pre>
                             <h2>Basic Menu View (PHP)</h2>
                         </hgroup>
                         <pre class="fragment"><code lang="php">&lt;?php
-class My_Controller extends Application_Controller {
-  public function index(){
+class Menu_Controller extends Application_Controller {
+  public function main(){
     $view = new View('menu');
     $view->title = 'Menu Title';
     $view->items = Menu_Model::all();
@@ -235,7 +235,7 @@ class My_Controller extends Application_Controller {
                         </hgroup>
                         <div class="fragment">
                         <pre><code lang="ruby">class MenuController &lt; ApplicationController
-  def index
+  def main
     @title = "Menu Title"
     @items = Menu.all
   end
