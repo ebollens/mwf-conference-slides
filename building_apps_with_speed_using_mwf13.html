@@ -53,8 +53,83 @@
                 
                 <section>
                     <section>
+                        <h2>MWF 1.3 UI Elements</h2>
+                        <p class="fragment">A number of elements from the outset</p>
+                        <ul class="fragment">
+                            <li>Header and Footer</li>
+                            <li>Menu, Content and Button</li>
+                        </ul>
+                        <p class="fragment">But there were a couple obvious lapses</p>
+                        <ul class="fragment">
+                            <li>Forms</li>
+                            <li>Messages</li>
+                        </ul>
+                        <p class="fragment">MWF 1.3 added APIs for both of these</p>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Messages</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="html">&lt;div class="message alert"&gt;Alert message&lt;/div&gt;
+&lt;div class="message confirm"&gt;Confirm message&lt;/div&gt;
+&lt;div class="message error"&gt;Error message&lt;/div&gt;
+&lt;div class="message info"&gt;Info message&lt;/div&gt;</code></pre>
+                        <img src="img/messages-example.png" class="fragment">
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Forms</h2>
+                        </hgroup>
+                        <pre class="fragment"><code lang="html">&lt;form action="#"&gt;
+    &lt;h2&gt;Example Form&lt;/h2&gt;
+    &lt;label&gt;Label for Input&lt;/label&gt;
+    &lt;input name="t-1" type="text"&gt;
+    &lt;label&gt;Label for Checkbox Group&lt;/label&gt;
+    &lt;div class="option"&gt;
+        &lt;label&gt;&lt;input name="c-1" value="1" type="checkbox"&gt;One&lt;/label&gt;
+        &lt;label&gt;&lt;input name="c-2" value="2" type="checkbox"&gt;Two&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;input value="Submit" class="primary" type="submit"&gt;
+&lt;/form&gt;</code></pre>
+                    </section>
+                    <section>
+                        <hgroup>
+                            <h4>Example</h4>
+                            <h2>Forms</h2>
+                        </hgroup>
+                        <img src="img/form-example.png">
+                    </section>
+                    <section>
+                        <h2>Shorter Entity Names</h2>
+                        <div class="fragment">
+                            <p>Why have classes like...</p>
+                            <pre><code lang="html">&lt;div class="menu-full menu-padded menu-detailed"&gt;</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p>New "lean CSS" style</p>
+                            <pre><code lang="html">&lt;div class="menu detailed"&gt;</code></pre>
+                        </div>
+                        <p class="fragment">What about backwards compatibility?</p>
+                        <pre class="fragment"><code lang="html">&lt;link rel="stylesheet" href="/assets/css.php?lean"&gt;</code></pre>
+                    </section>
+                    <section>
+                        <h2>MWF 1.3 APIs</h2>
+                        <ul>
+                            <li class="fragment">Geolocation</li>
+                            <li class="fragment">Preferences</li>
+                            <li class="fragment">Customizable Home Screen</li>
+                            <li class="fragment">Unit Tests</li>
+                            <li class="fragment">Interactivity <span class="highlight">[under development]</span></li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
                         <h2>Decorators</h2>
-                        <p class="fragment">An object-oriented approach to MWF entities</p>
+                        <p class="fragment">An object-oriented approach to UI elements</p>
                         <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu();
 $decorator->set_title('Menu Title');
 $decorator->add_item('Item 1', '#1');
@@ -70,20 +145,21 @@ echo $decorator->render();</code></pre>
                     </section>
                     <section>
                         <h2>PHP Decorators</h2>
-                        <p class="fragment">MWF Core includes a set of decorators</p>
+                        <p class="fragment">MWF Core includes a set of PHP decorators</p>
                         <ul>
                             <li class="fragment">Menu, Content, Button, Form, Header, Footer, etc.</li>
                         </ul>
                         <p class="fragment">But what about outside of MWF Core?</p>
                         <ul>
-                            <li class="fragment">MWFD project for PHP decorators</li>
+                            <li class="fragment">MWFD project for PHP decorators 
+                                <span class="extra"><a href="https://github.com/ebollens/mwfd" target="_blank">github.com/ebollens/mwfd</a> <span class="highlight">[under development]</span></span></li>
                             <li class="fragment">JS decorators from the Ohmage project</li>
                             <li class="fragment">Roll your own decorators for other languages</li>
                         </ul>
                     </section>
                     <section>
                         <h2>What's in a decorator?</h2>
-                        <p class="fragment">A set of libraries to render MWF entities</p>
+                        <p class="fragment">A library to render a UI element</p>
                         <p class="fragment">Object-oriented languages lend themselves to this</p>
                         <p class="fragment">PHP decorators can be used as reference</p>
                         <pre class="fragment"><code lang="php">$decorator = Site_Decorator::menu();
@@ -157,13 +233,14 @@ class My_Controller extends Application_Controller {
                             <h4>Example</h4>
                             <h2>Basic Menu View (Ruby)</h2>
                         </hgroup>
-                        <pre class="fragment"><code lang="ruby">class MenuController &lt; ApplicationController
+                        <div class="fragment">
+                        <pre><code lang="ruby">class MenuController &lt; ApplicationController
   def index
     @title = "Menu Title"
     @items = Menu.all
   end
 end</code></pre>
-                        <pre class="fragment"><code lang="ruby">&lt;div class="menu"&gt;
+                        <pre><code lang="ruby">&lt;div class="menu"&gt;
   &lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
   &lt;ul&gt;
     &lt;% @items.each do |item| %&gt;
@@ -171,6 +248,7 @@ end</code></pre>
     &lt;% end %&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
+                        </div>
                     </section>
                     <section>
                         <h2>Advantages to MVC</h2>
@@ -209,7 +287,7 @@ end</code></pre>
                             <li class="fragment">Abstraction</li>
                             <li class="fragment">Reusability</li>
                         </ul>
-                        <p class="fragment">Great for building desktop &amp; mobile versions of an app</p>
+                        <p class="fragment">Great for building multiple versions of an app</p>
                     </section>
                     <section>
                         <h2>MWF with SOA</h2>
@@ -233,19 +311,40 @@ end</code></pre>
     <span class="fragment">$(document).ready(function(){
         $('.preload').each(function(){
             var page = $(this).attr('href');
-            prefetchPage(page);
+            getData(page);
         });
     });</span>
 
     <span class="fragment">$('.preload').click(function(e){
         e.preventDefault();
-        showPage($(this).attr('href'));
+        displayData($(this).attr('href'));
     });</span>
 
 }</code></pre>
                     </section>
                 </section>
 
+                <section>
+                    <section>
+                        <h2>Where do we go from here?</h2>
+                        <p class="fragment">MWF removed the need to make device-specific apps</p>
+                        <p class="fragment">Design patterns for deploying mobile &amp; desktop apps</p>
+                        <p class="fragment" style="margin-bottom: 36px;">... but isn't that still a bit too much work?</p>
+                    </section>
+                    <section>
+                        <h2>Responsive Design</h2>
+                        <p class="fragment">Responsive design is the next frontier</p>
+                        <ul>
+                            <li class="fragment">Build once, view everywhere</li>
+                        </ul>
+                        <p class="fragment">But still some niches where MWF is needed</p>
+                        <ul>
+                            <li class="fragment">Differing mobile applicability</li>
+                            <li class="fragment">Supporting low-end devices</li>
+                        </ul>
+                    </section>
+                </section>
+                
                 <section>
                     <h1>THANK YOU</h1>
                     <h2>Any Questions?</h2>
