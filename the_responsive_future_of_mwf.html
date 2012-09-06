@@ -47,7 +47,7 @@
                                     <p class="text-right"><strong>Responsive Design</strong></p>
                                 </td>
                                 <td>
-                                    <ul class="small">
+                                    <ul class="small" style="margin-bottom: 24px;">
                                         <li>Flexible Grid</li>
                                         <li>Media Queries</li>
                                         <li>Responsive Media</li>
@@ -59,7 +59,7 @@
                                     <p class="text-right"><strong>Support Libraries</strong></p>
                                 </td>
                                 <td>
-                                    <ul class="small">
+                                    <ul class="small" style="margin-bottom: 24px;">
                                         <li>Browser Normalization</li>
                                         <li>Capability Detection</li>
                                         <li>HTML5 &amp; CSS3 Polyfills</li>
@@ -160,26 +160,20 @@
                             <h4>Example</h4>
                             <h2>To compress or to polyfill?</h2>
                         </hgroup>
-                        <table>
-                            <tr class="fragment">
-                                <td>
-                                    <p class="label">Compression (from MWF)</p>
-                                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;img src="img.php?img=http%3A%2F%2Fdomain%2Fpath%2Fimg.ext"&gt;</code></pre>
-                                </td>
-                            </tr>
-                            <tr class="fragment">
-                                <td>
-                                    <p class="label">Polyfill (from jQuery Picture)</p>
-                                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">&lt;picture alt="Description"&gt;
+                        <div class="fragment" style="margin-bottom: 32px;">
+                            <p class="label">Compression (from MWF)</p>
+                            <pre><code contenteditable style="font-size: 18px;">&lt;img src="img.php?img=http%3A%2F%2Fdomain%2Fpath%2Fimg.ext"&gt;</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p class="label">Polyfill (from jQuery Picture)</p>
+                            <pre><code contenteditable style="font-size: 18px;">&lt;picture alt="Description"&gt;
     &lt;source src="path/img-small.png"&gt;
     &lt;source src="path/img-large.ext" media="(min-width:800px)"&gt;
     &lt;noscript>
         &lt;img src="path/img-large.ext" alt="Description"&gt;
     &lt;/noscript&gt;
 &lt;/picture&gt;</code></pre>
-                                </td>
-                            </tr>
-                        </table>
+                        </div>
                     </section>
                     <section>
                         <hgroup>
